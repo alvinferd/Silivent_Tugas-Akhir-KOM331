@@ -26,18 +26,7 @@
 
 <body class="bg-dark">
 <div class="container mt-5">
-<?php if( (isset($_SESSION["user"])) ) : ?>
-    <a href="http://yahoo.com">This will only display if $condition is true</a>
 
-                <div class="card-body text-center">
-
-                    <img class="img img-responsive rounded-circle mb-3" width="50" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
-                    
-                    <p style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></p>
-
-                    <p style="font-size:11px"><a href="logout.php">Logout</a></p>
-                </div>
-<?php endif; ?>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -47,12 +36,27 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+
+          <!--Hanya ditampilkan jika belum login-->
+        <?php if( !(isset($_SESSION["user"])) ) : ?>
           <li class="nav-item">
             <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="LogIn.php">Log In</a>
           </li>
+        <?php endif; ?>
+
+          <!--Menampilkan user hanya jika login-->
+          <?php if( (isset($_SESSION["user"])) ) : ?>
+                <div class="card-body text-center">
+                    <img class="img img-responsive rounded-circle mb-0" width="35" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
+                    <br>
+                    <a style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></a>
+                    <a href="logout.php"> [ logout ]</a>
+                </div>
+          <?php endif; ?>        
+
         </ul>
       </div>
     </div>

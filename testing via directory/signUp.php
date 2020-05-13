@@ -59,8 +59,8 @@ if(isset($_POST['register'])){
 
 </head>
 
-<body>
-
+<body class="bg-dark">
+<div class="container mt-5">
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -123,8 +123,9 @@ if(isset($_POST['register'])){
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
+</div>
   </header>
-
+<br><br>
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">

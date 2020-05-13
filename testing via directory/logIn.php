@@ -60,8 +60,8 @@ if(isset($_POST['login'])){
 
 </head>
 
-<body>
-
+<body class="bg-dark">
+<div class="container mt-5">
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -93,10 +93,10 @@ if(isset($_POST['login'])){
     <form action="" method="POST">
 
     <h2 class="masthead-subheading mb-0">Username : </h2>
-    <input type="text" name="username" placeholder="Username atau email" required>
+    <input type="text" name="username" required>
     <br><br>
     <h2 class="masthead-subheading mb-0">Password : </h2>
-    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="password" required>
     <br>
     <input type="submit" name="login" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
   <br><br>
@@ -108,7 +108,8 @@ if(isset($_POST['login'])){
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
   </header>
-
+</div>
+<br><br>
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
