@@ -2,4 +2,5 @@
 
 session_start();
 session_unset("user");
-header("Location: index.php");
+unset($_SESSION["user"]);
+header("Location: login.php");

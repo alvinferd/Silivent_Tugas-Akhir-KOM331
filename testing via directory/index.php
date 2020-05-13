@@ -26,17 +26,18 @@
 
 <body class="bg-dark">
 <div class="container mt-5">
+<?php if( (isset($_SESSION["user"])) ) : ?>
+    <a href="http://yahoo.com">This will only display if $condition is true</a>
 
                 <div class="card-body text-center">
 
-                    <img class="img img-responsive rounded-circle mb-3" width="40" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
+                    <img class="img img-responsive rounded-circle mb-3" width="50" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
                     
                     <p style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></p>
-                    <p style="font-size:11px; color:white"><?php echo $_SESSION["user"]["email"] ?></p>
 
                     <p style="font-size:11px"><a href="logout.php">Logout</a></p>
                 </div>
-
+<?php endif; ?>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">

@@ -1,5 +1,5 @@
 <?php 
-
+ $message = "";
 require_once("config.php");
 
 if(isset($_POST['login'])){
@@ -30,8 +30,9 @@ if(isset($_POST['login'])){
             // login sukses, alihkan ke halaman timeline
             header("Location: index.php");
         }
-        echo "USERNAME ATAU PASSWORD SALAH";
+        else $message = "Invalid Username or Password!";
     }
+   else $message = "Invalid Username or Password!";
 }
 ?>
 
@@ -98,7 +99,8 @@ if(isset($_POST['login'])){
     <input type="password" name="password" placeholder="Password" required>
     <br>
     <input type="submit" name="login" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
-  
+  <br><br>
+  <h4 style="color: black;"><?php echo  $message ?></h4>
   </form>
 
     <div class="bg-circle-1 bg-circle"></div>
