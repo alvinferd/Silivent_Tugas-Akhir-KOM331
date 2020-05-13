@@ -1,3 +1,40 @@
+<?php 
+
+require_once("config.php");
+
+if(isset($_POST['login'])){
+
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
+    $stmt = $db->prepare($sql);
+    
+    // bind parameter ke query
+    $params = array(
+        ":username" => $username,
+        ":email" => $username
+    );
+
+    $stmt->execute($params);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // jika user terdaftar
+    if($user){
+        // verifikasi password
+        if(password_verify($password, $user["password"])){
+            // buat Session
+            session_start();
+            $_SESSION["user"] = $user;
+            // login sukses, alihkan ke halaman timeline
+            header("Location: index.php");
+        }
+        echo "USERNAME ATAU PASSWORD SALAH";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,17 +64,17 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="home.html">Silivent</a>
+      <a class="navbar-brand" href="index.php">Silivent</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="signUp.html">Sign Up</a>
+            <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logIn.html">Log In</a>
+            <a class="nav-link" href="LogIn.php">Log In</a>
           </li>
         </ul>
       </div>
@@ -47,27 +84,24 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Sign Up</h1>
+        <h1 class="masthead-heading mb-0">Log In</h1>
       </div>
     </div>
     <br><br><br><br><br>
-    <form action="tambah-proses.php" method="post">
-    <h2 class="masthead-subheading mb-0">E-Mail :</h2>
-    <input type="email" name="email" required>
-    <br><br>
+    
+    <form action="" method="POST">
+
     <h2 class="masthead-subheading mb-0">Username : </h2>
-    <input type="text" name="username" width="600px" required>
+    <input type="text" name="username" placeholder="Username atau email" required>
     <br><br>
     <h2 class="masthead-subheading mb-0">Password : </h2>
-    <input type="password" name="password" required>
-    <br><br>
-    <h2 class="masthead-subheading mb-0">Ulangi Password :</h2>
-    <input type="password" name="ulangPass" required>
+    <input type="password" name="password" placeholder="Password" required>
     <br>
-    <input type="submit" name="tambah" value="Sign Up" class="btn btn-primary btn-xl rounded-pill mt-5">
+    <input type="submit" name="login" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
+  
   </form>
 
-      <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>

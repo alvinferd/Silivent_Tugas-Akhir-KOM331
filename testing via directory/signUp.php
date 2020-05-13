@@ -1,3 +1,40 @@
+<?php
+
+require_once("config.php");
+
+if(isset($_POST['register'])){
+
+    // filter data yang diinputkan
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    // enkripsi password
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+
+    // menyiapkan query
+    $sql = "INSERT INTO users (name, username, email, password) 
+            VALUES (:name, :username, :email, :password)";
+    $stmt = $db->prepare($sql);
+
+    // bind parameter ke query
+    $params = array(
+        ":name" => $name,
+        ":username" => $username,
+        ":password" => $password,
+        ":email" => $email
+    );
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman login
+    if($saved) header("Location: LogIn.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,17 +64,17 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="home.html">Silivent</a>
+      <a class="navbar-brand" href="index.php">Silivent</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="signUp.html">Sign Up</a>
+            <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logIn.html">Log In</a>
+            <a class="nav-link" href="LogIn.php">Log In</a>
           </li>
         </ul>
       </div>
@@ -47,19 +84,40 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Log In</h1>
+        <h1 class="masthead-heading mb-0">Sign Up</h1>
       </div>
     </div>
-    <br><br><br><br><br>
-    <form action="tambah-proses.php" method="post">
-    <h2 class="masthead-subheading mb-0">Username : </h2>
-    <input type="text" name="username" required>
+    <br><br><br>
+
+  <form action="" method="POST">
+
+<div class="form-group">
+    <h2 class="masthead-subheading mb-0">Nama Lengkap</h2>
+    <input type="text" name="name" required>
     <br><br>
-    <h2 class="masthead-subheading mb-0">Password : </h2>
-    <input type="password" name="password" required>
-    <br>
-    <input type="submit" name="tambah" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
-  </form>
+</div>
+
+<div class="form-group">
+    <h2 class="masthead-subheading mb-0">Username</h2>
+    <input type="text" name="username" required />
+    <br><br>
+</div>
+
+<div class="form-group">
+    <h2 class="masthead-subheading mb-0">Email</h2>
+    <input type="email" name="email" required />
+    <br><br>
+</div>
+
+<div class="form-group">
+    <h2 class="masthead-subheading mb-0">Password</h2>
+    <input type="password" name="password" required />
+    <br><br>
+</div>
+
+<input type="submit" class="btn btn-primary btn-xl rounded-pill mt-5" name="register" value="Sign Up" />
+
+</form>
 
       <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>

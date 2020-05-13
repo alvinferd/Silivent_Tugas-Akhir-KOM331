@@ -1,3 +1,5 @@
+<?php require_once("auth.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +24,18 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
+<div class="container mt-5">
+
+                <div class="card-body text-center">
+
+                    <img class="img img-responsive rounded-circle mb-3" width="40" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
+                    
+                    <p style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></p>
+                    <p style="font-size:11px; color:white"><?php echo $_SESSION["user"]["email"] ?></p>
+
+                    <p style="font-size:11px"><a href="logout.php">Logout</a></p>
+                </div>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -34,10 +47,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="signUp.html">Sign Up</a>
+            <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logIn.html">Log In</a>
+            <a class="nav-link" href="LogIn.php">Log In</a>
           </li>
         </ul>
       </div>
@@ -49,7 +62,7 @@
       <div class="container">
         <h1 class="masthead-heading mb-0">Silivent</h1>
         <h2 class="masthead-subheading mb-0">Temukan Lomba dan Event Pilihanmu</h2>
-        <a href="list.html" class="btn btn-primary btn-xl rounded-pill mt-5">Lihat Event & Lomba</a>
+        <a href="list.php" class="btn btn-primary btn-xl rounded-pill mt-5">Lihat Event & Lomba</a>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -62,7 +75,7 @@
     <div class="container">
       <br>
       <br>
-      <h1 style="text-align: center;">Lomba & Event Pilihan</h1>
+      <h1 style="text-align: center; color:white">Lomba & Event Pilihan</h1>
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
@@ -71,8 +84,8 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <a href="detailgemastik.html" style="color: black;"><h2 class="display-4">Gemastik XII</h2></a>
-            <p>GEMASTIK atau Pagelaran Mahasiswa Nasional Bidang Tekonologi Informasi dan Komunikasi, merupakan program Direktorat Kemahasiswaan, Direktorat Jenderal Pembelajaran dan Kemahasiswaan Kementerian Riset, Teknologi dan Pendidikan Tinggi. Program ini ditujukan untuk meningkatkan kompetensi mahasiswa Indonesia, sehingga mampu mengambil peran sebagai agen perubahan dalam memajukan TIK dan pemanfaatannya, baik ketika masih dalam masa studi maupun kelak sesudah lulus studi.</p>
+            <a href="detailgemastik.php" style="color: black;"><h2 class="display-4">Gemastik XII</h2></a>
+            <p style="color:white">GEMASTIK atau Pagelaran Mahasiswa Nasional Bidang Tekonologi Informasi dan Komunikasi, merupakan program Direktorat Kemahasiswaan, Direktorat Jenderal Pembelajaran dan Kemahasiswaan Kementerian Riset, Teknologi dan Pendidikan Tinggi. Program ini ditujukan untuk meningkatkan kompetensi mahasiswa Indonesia, sehingga mampu mengambil peran sebagai agen perubahan dalam memajukan TIK dan pemanfaatannya, baik ketika masih dalam masa studi maupun kelak sesudah lulus studi.</p>
           </div>
         </div>
       </div>
@@ -90,7 +103,7 @@
         <div class="col-lg-6">
           <div class="p-5">
             <a href="#" style="color: black;"><h2 class="display-4">Bogor Art Festival</h2></a>
-            <p>Bogor Art Festival merupakan acara yang diselenggarakan oleh Badan Eksekutif Mahasiswa Fakultas Ekonomi dan Manajemen yang sekarang sudah menginjak tahun ke 9. Bogor Art Festival merupakan rangkaian dari 3 acara utama yaitu FEM Art, Expo dan Malam Puncak. Tiket yang disediakan adalah tiket untuk malam puncak yang akan mengundang sejumlah guest star dan musisi papan atas.</p>
+            <p style="color:white">Bogor Art Festival merupakan acara yang diselenggarakan oleh Badan Eksekutif Mahasiswa Fakultas Ekonomi dan Manajemen yang sekarang sudah menginjak tahun ke 9. Bogor Art Festival merupakan rangkaian dari 3 acara utama yaitu FEM Art, Expo dan Malam Puncak. Tiket yang disediakan adalah tiket untuk malam puncak yang akan mengundang sejumlah guest star dan musisi papan atas.</p>
           </div>
         </div>
       </div>
@@ -108,7 +121,7 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <a href="#" style="color: black;"><h2 class="display-4">LOGIKA 2020</h2></a>
-            <p>Lomba dan Kegiatan Matematika Universitas Indonesia (LOGIKA UI) merupakan rangkaian acara kegiatan Matematika, Statistika, dan Aktuaria yang dilaksanakan oleh Himpunan Mahasiswa Departemen Matematika yang secara rutin diadakan setiap tahunnya sejak tahun 1997. Pada pelaksanaannya yang ke-16 ini, LOGIKA UI 2020 hadir dengan 7 kegiatan utama, yaitu Kompetisi Matematika dan Statistika (MIC, MTC, dan STC), Mathcademy, National Mathematics Paper Competition, LogiTalks, dan Awarding Night. LOGIKA UI 2020 diadakan dengan tujuan utama untuk memberikan kontribusi nyata dalam pengembangan ilmu Matematika, Statistika, dan Aktuaria di Indonesia.</p>
+            <p style="color:white">Lomba dan Kegiatan Matematika Universitas Indonesia (LOGIKA UI) merupakan rangkaian acara kegiatan Matematika, Statistika, dan Aktuaria yang dilaksanakan oleh Himpunan Mahasiswa Departemen Matematika yang secara rutin diadakan setiap tahunnya sejak tahun 1997. Pada pelaksanaannya yang ke-16 ini, LOGIKA UI 2020 hadir dengan 7 kegiatan utama, yaitu Kompetisi Matematika dan Statistika (MIC, MTC, dan STC), Mathcademy, National Mathematics Paper Competition, LogiTalks, dan Awarding Night. LOGIKA UI 2020 diadakan dengan tujuan utama untuk memberikan kontribusi nyata dalam pengembangan ilmu Matematika, Statistika, dan Aktuaria di Indonesia.</p>
           </div>
         </div>
       </div>
