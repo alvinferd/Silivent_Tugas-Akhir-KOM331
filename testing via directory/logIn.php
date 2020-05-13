@@ -98,9 +98,10 @@ if(isset($_POST['login'])){
     <h2 class="masthead-subheading mb-0">Password : </h2>
     <input type="password" name="password" required>
     <br>
+    <a style="font-size:15px; color: black;"><?php echo  $message ?></a>
+    <br>
     <input type="submit" name="login" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
-  <br><br>
-  <h4 style="color: black;"><?php echo  $message ?></h4>
+  
   </form>
 
     <div class="bg-circle-1 bg-circle"></div>
