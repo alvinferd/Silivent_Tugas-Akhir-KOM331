@@ -21,13 +21,14 @@
 
   <!-- Custom styles for this template -->
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
 </head>
 
 <body class="bg-dark">
-<div class="container mt-5">
 
-  <!-- Navigation -->
+<div id="navbar">
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Silivent</a>
@@ -51,6 +52,7 @@
           <?php if( (isset($_SESSION["user"])) ) : ?>
                 <div class="card-body text-center">
                     <img class="img img-responsive rounded-circle mb-0" width="35" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
+                    <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
                     <br>
                     <a style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></a>
                     <a href="logout.php"> [ logout ]</a>
@@ -61,6 +63,9 @@
       </div>
     </div>
   </nav>
+</div>
+
+<div class="container mt-5">
 
   <header class="masthead text-center text-white">
     <div class="masthead-content">
@@ -133,6 +138,8 @@
     </div>
   </section>
 
+</div>
+<br><br>
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
@@ -146,5 +153,18 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
 
 </html>
