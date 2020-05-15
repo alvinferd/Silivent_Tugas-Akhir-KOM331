@@ -72,7 +72,10 @@
       <div class="container">
         <h1 class="masthead-heading mb-0">Silivent</h1>
         <h2 class="masthead-subheading mb-0">Temukan Lomba dan Event Pilihanmu</h2>
-        <a href="list.php" class="btn btn-primary btn-xl rounded-pill mt-5">Lihat Event & Lomba</a>
+        <a href="list.php" class="btn btn-primary btn-xl rounded-pill mt-5">Lihat Semua Event & Lomba</a>
+        <?php if( (isset($_SESSION["user"])) ) : ?>
+             <a href="index.php" class="btn btn-primary btn-xl rounded-pill mt-5">Buat Event & Lomba</a>
+        <?php endif; ?>  
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>

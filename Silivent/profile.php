@@ -60,6 +60,15 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                 </div>
                 <div class="row">
                     <div class="col-md-4">
+                    <div class="profile-work">
+                            <p>My Event</p>
+                            <a href="profile.php">List All of My Event</a><br/>
+                            <p>Kategori Favorit</p>
+                            <a href="profile.php">Web Designer</a><br/>
+                            <a href="profile.php">Web Developer</a><br/>
+                            <a href="profile.php">WordPress</a><br/>
+                            <a href="profile.php">PHP, .Net</a><br/>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
