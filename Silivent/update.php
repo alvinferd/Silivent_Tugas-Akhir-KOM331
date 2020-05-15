@@ -6,34 +6,37 @@ require_once("auth.php");
 // Check if form is submitted for user update, then redirect to homepage after update
 if(isset($_POST['update']))
 {   
-   //hapus session
+   //hapus session sebelum melakukan update
     session_destroy();
-    $username = $_POST['username'];
 
-    $name=$_POST['name'];
-    $phone=$_POST['phone'];
-    $email=$_POST['email'];
-    $bio=$_POST['bio'];
-    $instansi=$_POST['instansi'];
+    $username = $_POST['username']; #nilai submit dari form username, disimpan di variabel username
 
-    // update user data
+    $name=$_POST['name']; #nilai submit dari form nama, disimpan di variabel nama
+    $phone=$_POST['phone']; #nilai submit dari form phone, disimpan di variabel phone
+    $email=$_POST['email']; #nilai submit dari form email, disimpan di variabel email
+    $bio=$_POST['bio']; #nilai submit dari form bio, disimpan di variabel ubio
+    $instansi=$_POST['instansi']; #nilai submit dari form instansi, disimpan di variabel instansi
+
+    # update user data ke database
     $result = mysqli_query($mysqli, "UPDATE users SET name='$name',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE username='$username'");
 
+    # Close koneksi yang di config.php
     mysqli_close($mysqli);
     
-    //mulai session baru
-    $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
-    $stmt = $db->prepare($sql);
-    $params = array(
-        ":username" => $username,
-        ":email" => $username
-    );
-    $stmt->execute($params);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    session_start();
-    $_SESSION["user"] = $user;
+    # mulai session baru, seperti hidup baru, dicopas dari codingan yang login
+        $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
+        $stmt = $db->prepare($sql);
+        $params = array
+            (
+            ":username" => $username,
+            ":email" => $username
+            );
+        $stmt->execute($params);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        session_start();
+        $_SESSION["user"] = $user;
 
-    // Redirect to homepage to display updated user in list
+    #Kembaliin ke halaman profile
     header("Location: profile.php");
 }
 ?>

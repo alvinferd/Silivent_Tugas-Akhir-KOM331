@@ -1,5 +1,6 @@
 <?php
 
+#set variabel, untuk connect
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
@@ -13,4 +14,5 @@ try {
     die("Terjadi masalah: \n" . $e->getMessage());
 }
 
+#nconnect ke mysqli
 $mysqli = mysqli_connect($db_host,$db_user,$db_pass,$db_name); 

@@ -2,22 +2,25 @@
 
 require_once("config.php");
 
-if(isset($_POST['register'])){
+#Kalau submitan register di klik jalankan ini :
+if(isset($_POST['register']))
+  {
 
     // filter data yang diinputkan
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    // enkripsi password
+    // enkripsi password biar aman
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 
-    // menyiapkan query
+    // menyiapkan query seperti saat login
     $sql = "INSERT INTO users (name, username, email, password) 
             VALUES (:name, :username, :email, :password)";
+    #menyiapkan database
     $stmt = $db->prepare($sql);
 
-    // bind parameter ke query
+    // bind parameter ke query agar bisa dieksekusi
     $params = array(
         ":name" => $name,
         ":username" => $username,
@@ -30,8 +33,9 @@ if(isset($_POST['register'])){
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
-    if($saved) header("Location: LogIn.php");
-}
+    if($saved) 
+      header("Location: LogIn.php");
+  }
 
 ?>
 

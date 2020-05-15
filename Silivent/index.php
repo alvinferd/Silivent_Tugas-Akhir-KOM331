@@ -1,4 +1,13 @@
-<?php require_once("auth.php"); ?>
+<?php 
+
+#Akses session di auth.php
+#SESSION bisa dipakai untuk mengakses nilai variabel, seperti
+    # $_SESSION["user"]["username"] berfungsi untuk mengakses variabel username dari tabel user,
+      # berdasarkan data yang aktif sessionnya, dalam hal ini data dari akun yang telah login
+
+require_once("auth.php"); 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +49,12 @@
 
           <!--Hanya ditampilkan jika belum login-->
         <?php if( !(isset($_SESSION["user"])) ) : ?>
-          <li class="nav-item">
-            <a class="nav-link" href="signUp.php">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LogIn.php">Log In</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signUp.php">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="LogIn.php">Log In</a>
+            </li>
         <?php endif; ?>
 
           <!--Menampilkan user hanya jika login-->
@@ -54,7 +63,8 @@
                     <img class="img img-responsive rounded-circle mb-0" width="35" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
                     <a href="profile.php"><i class="fas fa-user-circle"></i>[Profile]</a>
                     <br>
-                    <a style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></a>
+                    <!--$_SESSION["user"]["(kolom)"] berfungsi untuk mengakses variabel di kolom tersebut dari tabel user-->
+                      <a style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></a>
                     <a href="logout.php"> [ logout ]</a>
                 </div>
           <?php endif; ?>        
@@ -74,7 +84,7 @@
         <h2 class="masthead-subheading mb-0">Temukan Lomba dan Event Pilihanmu</h2>
         <a href="list.php" class="btn btn-primary btn-xl rounded-pill mt-5">Lihat Semua Event & Lomba</a>
         <?php if( (isset($_SESSION["user"])) ) : ?>
-             <a href="index.php" class="btn btn-primary btn-xl rounded-pill mt-5">Buat Event & Lomba</a>
+             <a href="list.php" class="btn btn-primary btn-xl rounded-pill mt-5">Buat Event & Lomba</a>
         <?php endif; ?>  
       </div>
     </div>
@@ -143,6 +153,7 @@
 
 </div>
 <br><br>
+
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
@@ -156,18 +167,5 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
 
 </html>

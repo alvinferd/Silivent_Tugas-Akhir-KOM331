@@ -1,6 +1,6 @@
 <?php
+#HANCURKAN SAJA SESSION NYA SEPERTI DIRI MU YANG MENGHANCURKANKU
+session_destroy();
 
-session_start();
-session_unset("user");
-unset($_SESSION["user"]);
+#YUK PINDAH KE HOME, KAMU SUDAH LOGOUT
 header("Location: index.php");

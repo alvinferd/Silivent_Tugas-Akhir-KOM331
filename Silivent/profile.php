@@ -1,8 +1,8 @@
 <?php
-require_once("config.php");
-require_once("auth.php");
 
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+    #akses config.php buat setting, dan auth buat session
+    require_once("config.php");
+    require_once("auth.php");
 
 ?>
 
@@ -41,21 +41,26 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                    <p><?php echo  $_SESSION["user"]["name"] ?></p>
+                                        <p>
+                                            <?php echo  $_SESSION["user"]["name"] ?> <!--Tampilin nama dari tabel user yg aktif berdasarkan session-->
+                                        </p>
                                     </h5>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                             </ul>
-                            <?php echo  $_SESSION["user"]["bio"] ?>
+                            <?php echo  $_SESSION["user"]["bio"] ?> <!--Tampilin bio dari tabel user yg aktif berdasarkan session-->
                         </div>
                     </div>
                     <div class="col-md-2">
                         <?php  
-                         $username = $_SESSION["user"]["username"]; {         
-                         echo "<td><a href='update.php?username=$username'>Edit Profile</a></td>";        
-                     } ?>
+                             $username = $_SESSION["user"]["username"]; #Simpan nilai username yg aktif berdasarkan session ke variabel username
+                                {         
+                                    echo "<td><a href='update.php?username=$username'>Edit Profile</a></td>"; 
+                                    #Menuju update.php dengan get parameter username dengan nilai dari variabel username diatas
+                                }    
+                        ?>
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +83,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["username"] ?></p>
+                                                <p><?php echo  $_SESSION["user"]["username"] ?></p> <!--Tampilin username dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                                         <div class="row">
@@ -86,7 +91,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["name"] ?></p>
+                                                <p><?php echo  $_SESSION["user"]["name"] ?></p> <!--Tampilin nama dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                                         <div class="row">
@@ -94,7 +99,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["email"] ?></p>
+                                                <p><?php echo  $_SESSION["user"]["email"] ?></p> <!--Tampilin email dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                                         <div class="row">
@@ -102,7 +107,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Instansi</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["instansi"] ?></p>
+                                                <p><?php echo  $_SESSION["user"]["instansi"] ?></p> <!--Tampilin instansi dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                                         <div class="row">
@@ -110,7 +115,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["phone"] ?></p>
+                                                <p><?php echo  $_SESSION["user"]["phone"] ?></p> <!--Tampilin phone dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                             </div>

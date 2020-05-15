@@ -1,39 +1,50 @@
 <?php 
- $message = "";
+#mengakses config.php
 require_once("config.php");
 
-if(isset($_POST['login'])){
 
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+#set variabel message, nnti bakal dipake untuk nyimpan isi pesan login berhasil atau nerror
+$message = "";
 
-    $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
-    $stmt = $db->prepare($sql);
+
+if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah berikut akan dieksekusi :
+  {
+
+      $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING); #filter username cuma boleh string, berdasarkan input post dari submit di html dengan nama 'username'
+      $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING); #filter password cuma boleh string, berdasarkan input post dari submit di html dengan nama 'password'
+
+      $sql = "SELECT * FROM users WHERE username=:username OR email=:email"; #Mengambil semua tabel user yang nilai username / email nya sama dengan inputan
+      $stmt = $db->prepare($sql); # menyiapkan database
     
-    // bind parameter ke query
-    $params = array(
-        ":username" => $username,
-        ":email" => $username
-    );
+      // bind parameter yang di $sql diatas ke query
+      $params = array
+        (
+          ":username" => $username,
+          ":email" => $username
+        );
 
-    $stmt->execute($params);
+      #eksekusi
+      $stmt->execute($params); 
+      $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // jika user terdaftar
-    if($user){
-        // verifikasi password
-        if(password_verify($password, $user["password"])){
-            // buat Session
-            session_start();
-            $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman timeline
+      #jika data user yang cocok ditemukan
+      if($user)
+        {
+          #password yang di store dan di compare ke db bukan plaintext, melainkan hasil enkripsi biar aman
+          if(password_verify($password, $user["password"]))
+          {
+            session_start(); #Mulai session baru, dimana
+            $_SESSION["user"] = $user; #Session ini menggunakan data dari user yang sudah cocok datanya melalui eksekusi diatas
+            
+            # login sukses, alihkan ke halaman home
             header("Location: index.php");
+          }
+          #Password atau username lu ga cocok bosh
+          else $message = "Invalid Username or Password!";
         }
-        else $message = "Invalid Username or Password!";
-    }
-   else $message = "Invalid Username or Password!";
-}
+      #data usernya ga ada bosh
+      else $message = "Invalid Username or Password!";
+  }
 ?>
 
 <!DOCTYPE html>
