@@ -1,8 +1,50 @@
 <?php
-require_once("config.php");
+// include database connection file
+include_once("config.php");
 require_once("auth.php");
 
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+// Check if form is submitted for user update, then redirect to homepage after update
+if(isset($_POST['update']))
+{   
+   //hapus session
+    session_destroy();
+    $username = $_POST['username'];
+
+    $name=$_POST['name'];
+    $phone=$_POST['phone'];
+    $email=$_POST['email'];
+    $bio=$_POST['bio'];
+    $instansi=$_POST['instansi'];
+
+    // update user data
+    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE username='$username'");
+
+    mysqli_close($mysqli);
+    
+    //mulai session baru
+    $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
+    $stmt = $db->prepare($sql);
+    $params = array(
+        ":username" => $username,
+        ":email" => $username
+    );
+    $stmt->execute($params);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    session_start();
+    $_SESSION["user"] = $user;
+
+    // Redirect to homepage to display updated user in list
+    header("Location: profile.php");
+}
+?>
+<?php
+// Display selected user data based on username
+// Getting username from url
+$name = $_SESSION["user"]["name"];
+$email = $_SESSION["user"]["email"];
+$phone = $_SESSION["user"]["phone"];
+$bio = $_SESSION["user"]["bio"];
+$instansi = $_SESSION["user"]["instansi"];
 
 ?>
 
@@ -24,7 +66,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                 <a href="index.php"><i class="fas fa-home"></i>Home</a></td>
                 <tab2><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></tab2>
     </tr>
-                <form action="" method="post">
+               <form name="update_user" method="post" action="update.php">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -48,13 +90,13 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                             </ul>
-                            <?php echo  $_SESSION["user"]["bio"] ?>
+                            <p><textarea cols="80" rows="6" name="bio"><?php echo $bio;?></textarea></p>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <?php  
                          $username = $_SESSION["user"]["username"]; {         
-                         echo "<td><a href='update.php?username=$username'>Edit Profile</a></td>";        
+                         echo "<td><a href='profile.php'>Cancel</a></td>";        
                      } ?>
                     </div>
                 </div>
@@ -77,7 +119,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["name"] ?></p>
+                                                   <p><input type="text" name="name" value=<?php echo $name;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -85,7 +127,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["email"] ?></p>
+                                                    <p><input type="text" name="email" value=<?php echo $email;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -93,7 +135,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Instansi</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["instansi"] ?></p>
+                                                   <p><input type="text" name="instansi" value=<?php echo $instansi;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -101,7 +143,16 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["phone"] ?></p>
+                                                   <p><input type="text" name="phone" value=<?php echo $phone;?>></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <p><input type="hidden" name="username" value=<?php echo $_GET['username'];?>></p>
+                                                   <p><input type="submit" name="update" value="Update"></p>
                                             </div>
                                         </div>
                             </div>
@@ -230,4 +281,3 @@ body{
 </style>
 
 </html>
-

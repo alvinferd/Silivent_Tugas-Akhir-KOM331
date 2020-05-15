@@ -52,7 +52,7 @@
           <?php if( (isset($_SESSION["user"])) ) : ?>
                 <div class="card-body text-center">
                     <img class="img img-responsive rounded-circle mb-0" width="35" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
-                    <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+                    <a href="profile.php"><i class="fas fa-user-circle"></i>[Profile]</a>
                     <br>
                     <a style="font-size:11px; color:white"><?php echo  $_SESSION["user"]["name"] ?></a>
                     <a href="logout.php"> [ logout ]</a>
