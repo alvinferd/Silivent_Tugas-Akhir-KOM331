@@ -1,8 +1,58 @@
 <?php
+// include database connection file
+include_once("../config.php");
+session_start();
 
-    #akses config.php buat setting, dan auth buat session
-    require_once("config.php");
-    require_once("auth.php");
+// Check if form is submitted for user update, then redirect to homepage after update
+if(isset($_POST['update']))
+{   
+   //hapus session sebelum melakukan update
+    session_destroy();
+
+    $id = $_SESSION['id']; #nilai submit dari form username, disimpan di variabel username
+
+    $username=$_POST['username']; #nilai submit dari form nama, disimpan di variabel nama
+    $phone=$_POST['phone']; #nilai submit dari form phone, disimpan di variabel phone
+    $email=$_POST['email']; #nilai submit dari form email, disimpan di variabel email
+    $bio=$_POST['bio']; #nilai submit dari form bio, disimpan di variabel ubio
+    $instansi=$_POST['instansi']; #nilai submit dari form instansi, disimpan di variabel instansi
+
+    # update user data ke database
+    $result = mysqli_query($koneksi, "UPDATE user SET username='$username',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE id='$id'");
+
+    $id = $_SESSION['id'];
+    # mulai session baru, seperti hidup baru, dicopas dari codingan yang login
+    $data = mysqli_query($koneksi,"select * from user where id='$id'");
+    $tangkap = mysqli_fetch_array($data);
+
+    // menghitung jumlah data yang ditemukan
+    $cek = mysqli_num_rows($data);
+
+    if($cek > 0)
+{
+    session_start();
+	$_SESSION['username'] = $tangkap['username'];
+	$_SESSION['stat'] = "login";
+	$_SESSION['id']=$tangkap['id'];
+	$_SESSION['email']=$tangkap['email'];
+	$_SESSION['bio']=$tangkap['bio'];
+	$_SESSION['phone']=$tangkap['phone'];
+	$_SESSION['instansi']=$tangkap['instansi'];
+    $_SESSION['photo']=$tangkap['photo'];
+}
+    #Kembaliin ke halaman profile
+    header("Location: profile.php");
+}
+?>
+<?php
+// Display selected user data based on username
+// Getting username from url
+$id = $_SESSION['id'];
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+$phone = $_SESSION["phone"];
+$bio = $_SESSION["bio"];
+$instansi = $_SESSION["instansi"];
 
 ?>
 
@@ -24,74 +74,51 @@
                 <a href="index.php"><i class="fas fa-home"></i>Home</a></td>
                 <tab2><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></tab2>
     </tr>
-                <form action="" method="post">
+               <form name="update_user" method="post" action="update.php">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img class="img img-responsive rounded-circle mb-0" src="img/<?php echo $_SESSION['user']['photo'] ?>" alt=""/>
+                            <img class="img img-responsive rounded-circle mb-0" src="../img/<?php echo $_SESSION['photo'] ?>" alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <input type="file" name="image" />
-                                <?php
-                                    echo $msg;
-                                ?>
+                                <!--<input type="file" name="image" />-->
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <p>
-                                            <?php echo  $_SESSION["user"]["name"] ?> <!--Tampilin nama dari tabel user yg aktif berdasarkan session-->
-                                        </p>
+                                    <p><?php echo  $_SESSION["username"] ?></p>
                                     </h5>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                             </ul>
-                            <?php echo  $_SESSION["user"]["bio"] ?> <!--Tampilin bio dari tabel user yg aktif berdasarkan session-->
+                            <p><textarea cols="80" rows="6" name="bio"><?php echo $bio;?></textarea></p>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <?php  
-                             $username = $_SESSION["user"]["username"]; #Simpan nilai username yg aktif berdasarkan session ke variabel username
-                                {         
-                                    echo "<td><a href='update.php?username=$username'>Edit Profile</a></td>"; 
-                                    #Menuju update.php dengan get parameter username dengan nilai dari variabel username diatas
-                                }    
-                        ?>
+                        {         
+                         echo "<td><a href='profile.php'>Cancel</a></td>";        
+                     } ?>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                    <div class="profile-work">
-                            <p>My Event</p>
-                            <a href="profile.php">List All of My Event</a><br/>
-                            <p>Kategori Favorit</p>
-                            <a href="profile.php">Web Designer</a><br/>
-                            <a href="profile.php">Web Developer</a><br/>
-                            <a href="profile.php">WordPress</a><br/>
-                            <a href="profile.php">PHP, .Net</a><br/>
-                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>User Id</label>
+                                                <label>Username</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["username"] ?></p> <!--Tampilin username dari tabel user yg aktif berdasarkan session-->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["name"] ?></p> <!--Tampilin nama dari tabel user yg aktif berdasarkan session-->
+                                                   <p><input type="text" name="username" value=<?php echo $_SESSION['username'];?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -99,7 +126,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["email"] ?></p> <!--Tampilin email dari tabel user yg aktif berdasarkan session-->
+                                                    <p><input type="text" name="email" value=<?php echo $email;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -107,7 +134,7 @@
                                                 <label>Instansi</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["instansi"] ?></p> <!--Tampilin instansi dari tabel user yg aktif berdasarkan session-->
+                                                   <p><input type="text" name="instansi" value=<?php echo $instansi;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -115,7 +142,15 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo  $_SESSION["user"]["phone"] ?></p> <!--Tampilin phone dari tabel user yg aktif berdasarkan session-->
+                                                   <p><input type="text" name="phone" value=<?php echo $phone;?>></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                   <p><input type="submit" name="update" value="Update"></p>
                                             </div>
                                         </div>
                             </div>
@@ -225,7 +260,7 @@ body{
 }
 
     tab1 { padding-left: 4em; }
-    tab2 { padding-left: 10em; }
+    tab2 { padding-left: 11em; }
     tab3 { padding-left: 12em; }
     tab4 { padding-left: 16em; }
     tab5 { padding-left: 20em; }
@@ -244,4 +279,3 @@ body{
 </style>
 
 </html>
-

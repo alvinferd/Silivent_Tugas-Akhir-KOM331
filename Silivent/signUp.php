@@ -1,44 +1,3 @@
-<?php
-
-require_once("config.php");
-
-#Kalau submitan register di klik jalankan ini :
-if(isset($_POST['register']))
-  {
-
-    // filter data yang diinputkan
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    // enkripsi password biar aman
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-
-    // menyiapkan query seperti saat login
-    $sql = "INSERT INTO users (name, username, email, password) 
-            VALUES (:name, :username, :email, :password)";
-    #menyiapkan database
-    $stmt = $db->prepare($sql);
-
-    // bind parameter ke query agar bisa dieksekusi
-    $params = array(
-        ":name" => $name,
-        ":username" => $username,
-        ":password" => $password,
-        ":email" => $email
-    );
-
-    // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-
-    // jika query simpan berhasil, maka user sudah terdaftar
-    // maka alihkan ke halaman login
-    if($saved) 
-      header("Location: LogIn.php");
-  }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +8,7 @@ if(isset($_POST['register']))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Silivent - Sistem Pencari Lomba dan Event</title>
+  <title>Silivent - Sistem Informasi Lomba dan Event</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -63,8 +22,8 @@ if(isset($_POST['register']))
 
 </head>
 
-<body class="bg-dark">
-<div class="container mt-5">
+<body>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -78,7 +37,7 @@ if(isset($_POST['register']))
             <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="LogIn.php">Log In</a>
+            <a class="nav-link" href="logIn.php">Log In</a>
           </li>
         </ul>
       </div>
@@ -91,49 +50,54 @@ if(isset($_POST['register']))
         <h1 class="masthead-heading mb-0">Sign Up</h1>
       </div>
     </div>
-    <br><br><br>
-
-  <form action="" method="POST">
-
-<div class="form-group">
-    <h2 class="masthead-subheading mb-0">Nama Lengkap</h2>
-    <input type="text" name="name" required>
+    <br><br><br><br><br>
+    <form action="signUpProc.php" method="post">
+    <h2 class="masthead-subheading mb-0">E-Mail :</h2>
+    <input type="email" name="email" required>
+    <?php
+    if(isset($_GET['pesan'])){
+      if($_GET['pesan'] == "gagalemail"){
+        echo "<br>E-mail sudah terdaftar !";
+      }
+    }
+    ?>
     <br><br>
-</div>
-
-<div class="form-group">
-    <h2 class="masthead-subheading mb-0">Username</h2>
-    <input type="text" name="username" required />
+    <h2 class="masthead-subheading mb-0">Username : </h2>
+    <input type="text" name="username" width="600px" required>
+    <?php
+    if(isset($_GET['pesan'])){
+      if($_GET['pesan'] == "gagaluser"){
+        echo "<br>Username tidak tersedia, gunakan username lain !";
+      }
+    }
+    ?>
     <br><br>
-</div>
-
-<div class="form-group">
-    <h2 class="masthead-subheading mb-0">Email</h2>
-    <input type="email" name="email" required />
+    <h2 class="masthead-subheading mb-0">Password : </h2>
+    <input type="password" name="password" required>
     <br><br>
-</div>
-
-<div class="form-group">
-    <h2 class="masthead-subheading mb-0">Password</h2>
-    <input type="password" name="password" required />
-    <br><br>
-</div>
-
-<input type="submit" class="btn btn-primary btn-xl rounded-pill mt-5" name="register" value="Sign Up" />
-
-</form>
+    <h2 class="masthead-subheading mb-0">Ulangi Password :</h2>
+    <input type="password" name="ulangPass" required>
+    <?php
+    if(isset($_GET['pesan'])){
+      if($_GET['pesan'] == "passgagal"){
+        echo "<br>Password tidak sama!";
+      }
+    }
+    ?>
+    <br>
+    <input type="submit" name="tambah" value="Sign Up" class="btn btn-primary btn-xl rounded-pill mt-5">
+  </form>
 
       <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
-</div>
   </header>
-<br><br>
+
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
-      <p class="m-0 text-center text-white">Silivent</p>
+      <p class="m-0 text-center text-white small">Copyright &copy; Silivent 2020</p>
     </div>
     <!-- /.container -->
   </footer>

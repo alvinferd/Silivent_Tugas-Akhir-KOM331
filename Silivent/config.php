@@ -1,6 +1,14 @@
-<?php
+<?php 
+$koneksi = mysqli_connect("localhost","root","","silivent");
+ 
+// Check connection
+if (mysqli_connect_errno()){
+	echo "Koneksi database gagal : " . mysqli_connect_error();
+}
 
-#set variabel, untuk connect
+
+#untuk syntax yang hash password
+
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
@@ -14,5 +22,4 @@ try {
     die("Terjadi masalah: \n" . $e->getMessage());
 }
 
-#nconnect ke mysqli
-$mysqli = mysqli_connect($db_host,$db_user,$db_pass,$db_name); 
+?>

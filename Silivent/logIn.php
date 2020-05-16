@@ -1,52 +1,3 @@
-<?php 
-#mengakses config.php
-require_once("config.php");
-
-
-#set variabel message, nnti bakal dipake untuk nyimpan isi pesan login berhasil atau nerror
-$message = "";
-
-
-if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah berikut akan dieksekusi :
-  {
-
-      $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING); #filter username cuma boleh string, berdasarkan input post dari submit di html dengan nama 'username'
-      $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING); #filter password cuma boleh string, berdasarkan input post dari submit di html dengan nama 'password'
-
-      $sql = "SELECT * FROM users WHERE username=:username OR email=:email"; #Mengambil semua tabel user yang nilai username / email nya sama dengan inputan
-      $stmt = $db->prepare($sql); # menyiapkan database
-    
-      // bind parameter yang di $sql diatas ke query
-      $params = array
-        (
-          ":username" => $username,
-          ":email" => $username
-        );
-
-      #eksekusi
-      $stmt->execute($params); 
-      $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-      #jika data user yang cocok ditemukan
-      if($user)
-        {
-          #password yang di store dan di compare ke db bukan plaintext, melainkan hasil enkripsi biar aman
-          if(password_verify($password, $user["password"]))
-          {
-            session_start(); #Mulai session baru, dimana
-            $_SESSION["user"] = $user; #Session ini menggunakan data dari user yang sudah cocok datanya melalui eksekusi diatas
-            
-            # login sukses, alihkan ke halaman home
-            header("Location: index.php");
-          }
-          #Password atau username lu ga cocok bosh
-          else $message = "Invalid Username or Password!";
-        }
-      #data usernya ga ada bosh
-      else $message = "Invalid Username or Password!";
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,8 +22,16 @@ if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah b
 
 </head>
 
-<body class="bg-dark">
-<div class="container mt-5">
+<?php
+    if(isset($_GET['pesan'])){
+      if($_GET['pesan'] == "gagal"){
+        echo "<body onload=yahhhGagal()>";
+      }
+    }else{
+      echo "<body>";
+    }
+?>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -86,7 +45,7 @@ if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah b
             <a class="nav-link" href="signUp.php">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="LogIn.php">Log In</a>
+            <a class="nav-link" href="logIn.php">Log In</a>
           </li>
         </ul>
       </div>
@@ -100,32 +59,26 @@ if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah b
       </div>
     </div>
     <br><br><br><br><br>
-    
-    <form action="" method="POST">
-
+    <form action="loginProc.php" method="post">
     <h2 class="masthead-subheading mb-0">Username : </h2>
     <input type="text" name="username" required>
     <br><br>
     <h2 class="masthead-subheading mb-0">Password : </h2>
     <input type="password" name="password" required>
     <br>
-    <a style="font-size:15px; color: black;"><?php echo  $message ?></a>
-    <br>
-    <input type="submit" name="login" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
-  
+    <input type="submit" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
   </form>
 
-    <div class="bg-circle-1 bg-circle"></div>
+      <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
   </header>
-</div>
-<br><br>
+
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
-      <p class="m-0 text-center text-white">Silivent</p>
+      <p class="m-0 text-center text-white small">Copyright &copy; Silivent 2020</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -133,6 +86,11 @@ if(isset($_POST['login'])) #Jika tombol login dipencet, maka perintah perintah b
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+  function yahhhGagal() {
+    alert("Login Gagal, periksa apakah terdapat data yang salah !");
+  }
+  </script>
 
 </body>
 
