@@ -67,7 +67,7 @@
 		<nav class="cd-nav">
 			<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
 				<li>
-					<a href="index.html" class="animsition-link">Home</a>
+					<a href="index.php" class="animsition-link">Home</a>
 				</li>
 				<li>
 					<a href="signUp.php" class="animsition-link">Sign Up</a>
@@ -79,7 +79,7 @@
 		</nav> <!-- cd-nav -->	
 	</div>
 	
-	<main class="cd-main-content">
+<main class="cd-main-content">
 	
 	<!-- HOME SECTION
     ================================================== -->
@@ -99,7 +99,7 @@
 			<div class="call-to-action-2">
 				<div class="container">
 					<div class="sixteen columns">
-						<h6>Event & Lomba Pilihan</h6>
+						<h6>Rekomendasi Event & Lomba Pilihan</h6>
 					</div>
 				</div>
 			</div>
@@ -159,6 +159,7 @@
 	      </div>
 	    </div>
 	  </section>
+</main>	
 
 	<!-- FOOTER
     ================================================== -->	
@@ -170,7 +171,7 @@
 				</div>	
 			</div>
 		</section>
-	</main>		
+	
 
 	<div class="scroll-to-top">&#xf106;</div>
 	</div>
