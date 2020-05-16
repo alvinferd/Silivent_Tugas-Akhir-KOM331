@@ -75,8 +75,6 @@ require_once("auth.php");
   </nav>
 </div>
 
-<div class="container mt-5">
-
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
@@ -94,6 +92,7 @@ require_once("auth.php");
     <div class="bg-circle-4 bg-circle"></div>
   </header>
 
+  <div class="container mt-5">
   <section>
     <div class="container">
       <br>
