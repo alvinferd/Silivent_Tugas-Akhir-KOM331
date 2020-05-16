@@ -59,7 +59,7 @@
     header("location:../logIn.php");
   }
   ?>
-<body>  
+<body class=bg-light>  
   <!-- MENU
     ================================================== -->  
   
@@ -100,7 +100,7 @@
       <div class="fullscreen-title-home">Silivent</div>
       <div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
       <div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
-        <a href="list.html" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
+        <a href="list.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
         <a href="tambahLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Submit Event atau Lomba</a>
       </div>
     </section>

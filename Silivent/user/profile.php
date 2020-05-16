@@ -28,9 +28,7 @@
                     <div class="col-md-4">
                         <div class="profile-img">
                             <img class="img img-responsive rounded-circle mb-0" src="../img/<?php echo $_SESSION['photo'] ?>" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -43,7 +41,7 @@
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
+                                </li></span>
                             </ul>
                             <?php echo $_SESSION['bio']; ?> <!--Tampilin bio dari tabel user yg aktif berdasarkan session-->
                             <div class="row=6">

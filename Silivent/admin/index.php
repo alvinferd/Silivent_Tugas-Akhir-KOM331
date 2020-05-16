@@ -62,29 +62,30 @@
 	<!-- MENU
     ================================================== -->	
 	
-    <div class="header-top">
-		<header class="cd-main-header">
-			<a class="cd-logo animsition-link" href="index.php">silivent</a>
-			<ul class="cd-header-buttons">
-      <div class="dropdown">
-        <button width:60px class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hallo, <?php echo $_SESSION['username']; ?>!
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba</a>
-          <a class="dropdown-item" href="logOut.php">Log Out</a>
-        </div>
-      </div> 
-				<li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
-			</ul> <!-- cd-header-buttons -->
-		</header>
-		
-		<nav class="cd-nav">
-			<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
- 
-			</ul> <!-- primary-nav -->
-		</nav> <!-- cd-nav -->	
-	</div>
+	<div class="header-top">
+    <header class="cd-main-header">
+      <a class="cd-logo animsition-link" href="index.php">silivent</a>
+
+      <ul class="cd-header-buttons">
+        <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
+      </ul> <!-- cd-header-buttons -->
+    </header>
+    
+    <nav class="cd-nav">
+      <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+        <li>
+          <a href="index.php" class="animsition-link">Home</a>
+        </li>
+        <li class="has-children">
+          <a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
+          <ul class="cd-secondary-nav is-hidden">
+              <li><a href="verifikasiLivent.php">Verifikasi Event</a></li>
+              <li><a href="logOut.php">Log Out</a></li>
+          </ul>
+        </li>
+      </ul> <!-- primary-nav -->
+    </nav> <!-- cd-nav -->  
+  </div>
 
  <main class="cd-main-content">
   	<!-- HOME SECTION
@@ -95,7 +96,7 @@
 			<div class="fullscreen-title-home">Silivent</div>
 			<div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
 			<div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
-        <a href="list.html" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
+        <a href="list.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
         <a href="tambahLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Tambah Event atau Lomba</a>
         <a href="verifikasiLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Verifikasi Event atau Lomba</a>
 			</div>

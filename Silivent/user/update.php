@@ -10,7 +10,7 @@ if(isset($_POST['update']))
     session_destroy();
 
     $id = $_SESSION['id']; #nilai submit dari form username, disimpan di variabel username
-
+    $image = $_FILES['image']['name'];
     $username=$_POST['username']; #nilai submit dari form nama, disimpan di variabel nama
     $phone=$_POST['phone']; #nilai submit dari form phone, disimpan di variabel phone
     $email=$_POST['email']; #nilai submit dari form email, disimpan di variabel email
@@ -18,7 +18,7 @@ if(isset($_POST['update']))
     $instansi=$_POST['instansi']; #nilai submit dari form instansi, disimpan di variabel instansi
 
     # update user data ke database
-    $result = mysqli_query($koneksi, "UPDATE user SET username='$username',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE id='$id'");
+    $result = mysqli_query($koneksi, "UPDATE user SET username='$username',photo='$image',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE id='$id'");
 
     $id = $_SESSION['id'];
     # mulai session baru, seperti hidup baru, dicopas dari codingan yang login
@@ -74,15 +74,14 @@ $instansi = $_SESSION["instansi"];
                 <a href="index.php"><i class="fas fa-home"></i>Home</a></td>
                 <tab2><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></tab2>
     </tr>
-               <form name="update_user" method="post" action="update.php">
+               <form name="update_user" method="post" action="update.php" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
                             <img class="img img-responsive rounded-circle mb-0" src="../img/<?php echo $_SESSION['photo'] ?>" alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <!--<input type="file" name="image" />-->
-
+                                <input type="file" name="image" required>
                             </div>
                         </div>
                     </div>

@@ -51,13 +51,6 @@
 	  echo "<body>";
 	}
 ?>
-<!-- cek apakah sudah login -->
-  <?php 
-  session_start();
-  if($_SESSION['stat']!="login"){
-    header("location:../logIn.php");
-  }
-  ?>
 <body>	
 	<!-- MENU
     ================================================== -->	
@@ -76,15 +69,9 @@
 				<li>
 					<a href="index.php" class="animsition-link">Home</a>
 				</li>
-				<li class="has-children">
-		          <a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
-		          <ul class="cd-secondary-nav is-hidden">
-		              <li><a href="profile.php">Profil</a></li>
-		              <li><a href="editKategori.php">Kategori Favorit</a></li>
-		              <li><a href="listLiventDiajukan.php">Submisi</a></li>
-		              <li><a href="logOut.php">Log Out</a></li>
-		          </ul>
-		        </li>
+				<li>
+					<a href="logOut.php" class="animsition-link">Log Out</a>
+				</li>
 			</ul> <!-- primary-nav -->
 		</nav> <!-- cd-nav -->	
 	</div>
@@ -103,70 +90,70 @@
 	<!-- SECTION
     ================================================== -->	
 			<section class="section" id="scroll-link">
-		      <div class="call-to-action-2">
-		        <div class="container">
-		          <div class="sixteen columns">
-		            <h6>Pilih Kategori Lomba</h6>
-		          </div>
-		        </div>
-		      </div>
-		    </section> 	
+				<div class="call-to-action-2">
+					<div class="container">
+						<div class="sixteen columns">
+							<h6>Pilih Kategori Lomba</h6>
+						</div>
+					</div>
+				</div>
+			</section>	
 			<div class="clear"></div>
 		
 			<div id="projects-grid">
 				<a class="expander" href="slider-ajax-project.html">
 					<div class="portfolio-box-1 photography">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/essay.jpg" alt="">
+						<img src="../img/kategori/essay.jpg" alt="">
 						<h6>Essay & KTI</h6>
 					</div>
 				</a>
 				<a class="expander" href="video-ajax-project.html">
 					<div class="portfolio-box-1 illustration">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/fotografi.jpg" alt="">
+						<img src="../img/kategori/fotografi.jpg" alt="">
 						<h6>Fotografi</h6>
 					</div>
 				</a>
 				<a class="expander" href="gallery-ajax-project.html">
 					<div class="portfolio-box-1 motion-graphics">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/debat.jpg" alt="">
+						<img src="../img/kategori/debat.jpg" alt="">
 						<h6>Debat</h6>
 					</div>
 				</a>
 				<a class="expander" href="slider-ajax-project.html">
 					<div class="portfolio-box-1 web-design">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/IT.jpg" alt="">
+						<img src="../img/kategori/IT.jpg" alt="">
 						<h6>IT</h6>
 					</div>
 				</a>
 				<a class="expander" href="video-ajax-project.html">
 					<div class="portfolio-box-1 photography">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/seni.jpg" alt="">
+						<img src="../img/kategori/seni.jpg" alt="">
 						<h6>Seni</h6>
 					</div>
 				</a>
 				<a class="expander" href="gallery-ajax-project.html">
 					<div class="portfolio-box-1 illustration">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/olahraga.jpg" alt="">
+						<img src="../img/kategori/olahraga.jpg" alt="">
 						<h6>Olahraga</h6>
 					</div>
 				</a>
 				<a class="expander" href="slider-ajax-project.html">
 					<div class="portfolio-box-1 motion-graphics">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/esport.jpg" alt="">
+						<img src="../img/kategori/esport.jpg" alt="">
 						<h6>E-Sport</h6>
 					</div>
 				</a>
 				<a class="expander" href="video-ajax-project.html">
 					<div class="portfolio-box-1 web-design">
 						<div class="mask-1"></div>
-						<img src="../images/kategori/lainnya.jpg" alt="">
+						<img src="../img/kategori/lainnya.jpg" alt="">
 						<h6>Lainnya</h6>
 					</div>
 				</a>
