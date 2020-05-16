@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-theme12.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Silivent - Sistem Pencari Lomba dan Event</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/one-page-wonder.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/settings.css"/>
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <link rel="stylesheet" href="css/retina.css"/>
+    <link rel="stylesheet" href="css/colorbox.css"/>
+    <link rel="stylesheet" href="css/animsition.min.css"/>
 </head>
-
 <?php
     if(isset($_GET['pesan'])){
       if($_GET['pesan'] == "gagal"){
@@ -31,67 +28,38 @@
       echo "<body>";
     }
 ?>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Silivent</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="signUp.php">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logIn.php">Log In</a>
-          </li>
-        </ul>
-      </div>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h1 style="color: white"><a href="index.php">SILIVENT</a></h1>
+                        <h7 style="color: white">Sistem Informasi Event & Lomba</h7>
+                        <br><br>
+                        <div class="page-links">
+                            <a href="logIn.php" class="active">Login</a><a href="signUp.php">Sign Up</a>
+                        </div>
+                        <form action="logInProc.php" method="post">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button type="submit" name="tambah" value="Log In" class="ibtn">Log In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
-
-  <header class="masthead text-center text-white">
-    <div class="masthead-content">
-      <div class="container">
-        <h1 class="masthead-heading mb-0">Log In</h1>
-      </div>
-    </div>
-    <br><br><br><br><br>
-    <form action="loginProc.php" method="post">
-    <h2 class="masthead-subheading mb-0">Username : </h2>
-    <input type="text" name="username" required>
-    <br><br>
-    <h2 class="masthead-subheading mb-0">Password : </h2>
-    <input type="password" name="password" required>
-    <br>
-    <input type="submit" value="Log In" class="btn btn-primary btn-xl rounded-pill mt-5">
-  </form>
-
-      <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
-  </header>
-
-  <!-- Footer -->
-  <footer class="py-5 bg-black">
-    <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; Silivent 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script>
   function yahhhGagal() {
     alert("Login Gagal, periksa apakah terdapat data yang salah !");
   }
-  </script>
-
+</script>
 </body>
-
 </html>
