@@ -28,18 +28,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/retina.css"/>
 	<link rel="stylesheet" href="css/colorbox.css"/>
-	<link rel="stylesheet" href="css/animsition.min.css"/>
-	
-	<link rel="alternate stylesheet" type="text/css" href="css/colors/color-gold.css" title="1">
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-2.css" title="2">
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-3.css" title="3">
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-4.css" title="4">
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-5.css" title="5">	
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-6.css" title="6">	
-    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-7.css" title="7">
-	
-	
-	
+	<link rel="stylesheet" href="css/animsition.min.css"/>	
 </head>
 
 <?php

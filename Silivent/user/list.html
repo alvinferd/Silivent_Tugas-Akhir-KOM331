@@ -51,6 +51,13 @@
 	  echo "<body>";
 	}
 ?>
+<!-- cek apakah sudah login -->
+  <?php 
+  session_start();
+  if($_SESSION['stat']!="login"){
+    header("location:../logIn.php");
+  }
+  ?>
 <body>	
 	<!-- MENU
     ================================================== -->	
@@ -69,9 +76,15 @@
 				<li>
 					<a href="index.php" class="animsition-link">Home</a>
 				</li>
-				<li>
-					<a href="logOut.php" class="animsition-link">Log Out</a>
-				</li>
+				<li class="has-children">
+		          <a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
+		          <ul class="cd-secondary-nav is-hidden">
+		              <li><a href="profile.php">Profil</a></li>
+		              <li><a href="editKategori.php">Kategori Favorit</a></li>
+		              <li><a href="listLiventDiajukan.php">Submisi</a></li>
+		              <li><a href="logOut.php">Log Out</a></li>
+		          </ul>
+		        </li>
 			</ul> <!-- primary-nav -->
 		</nav> <!-- cd-nav -->	
 	</div>
@@ -90,14 +103,14 @@
 	<!-- SECTION
     ================================================== -->	
 			<section class="section" id="scroll-link">
-				<div class="call-to-action-2">
-					<div class="container">
-						<div class="sixteen columns">
-							<h6>Pilih Kategori Lomba</h6>
-						</div>
-					</div>
-				</div>
-			</section>	
+		      <div class="call-to-action-2">
+		        <div class="container">
+		          <div class="sixteen columns">
+		            <h6>Pilih Kategori Lomba</h6>
+		          </div>
+		        </div>
+		      </div>
+		    </section> 	
 			<div class="clear"></div>
 		
 			<div id="projects-grid">
