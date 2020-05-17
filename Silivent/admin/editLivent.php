@@ -44,6 +44,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="editKategori.php">Kategori Favorit</a>
+          <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba/Event</a>
           <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Yang Diajukan</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
         </div>

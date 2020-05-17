@@ -44,7 +44,8 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="editKategori.php">Kategori Favorit</a>
-          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Yang Diajukan</a>
+          <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba/Event</a>
+          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
         </div>
     </div>  
@@ -58,7 +59,7 @@
     <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Lomba/Event yang Diajukan</h1>
+        <h1 class="masthead-heading mb-0">Lomba/Event Saya</h1>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -99,6 +100,8 @@
       echo "<a href='hapusLivent.php?id=".$tangkap['id']."'>Hapus</a>";
       echo " / ";
       echo "<a href='editLivent.php?id=".$tangkap['id']."'>Edit</a>";
+      echo " / ";
+      echo "<a href='detailLivent.php?id=".$tangkap['id']."'>Lihat</a>";
       echo "</td>";
 
       echo "</tr>";

@@ -80,9 +80,9 @@
         <li class="has-children">
           <a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
           <ul class="cd-secondary-nav is-hidden">
-              <li><a href="profile.php">Profil</a></li>
-              <li><a href="editKategori.php">Kategori Favorit</a></li>
-              <li><a href="listLiventDiajukan.php">Submisi</a></li>
+                            <li><a href="profile.php">Profil</a></li>
+              <li><a href="tambahLivent.php">Submit Event</a></li>
+              <li><a href="listLiventDiajukan.php">Event Saya</a></li>
               <li><a href="logOut.php">Log Out</a></li>
           </ul>
         </li>
@@ -101,6 +101,7 @@
       <div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
       <div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
         <a href="list.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
+        <a href="listLiventDiajukan.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Event atau Lomba Saya</a>
         <a href="tambahLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Submit Event atau Lomba</a>
       </div>
     </section>

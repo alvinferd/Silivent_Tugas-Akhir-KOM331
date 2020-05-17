@@ -112,14 +112,7 @@
 
     </div>
     <!-- /.row -->
-    <?php
-      echo "
-      <div style='text-align: center;'>
-        <a href='hapusLiventV.php?id=".$tangkap['id']."' class='btn btn-primary btn-xl rounded-pill mt-5'>Hapus</a>
-        <a href='verivicationProc.php?id=".$tangkap['id']."' class='btn btn-primary btn-xl rounded-pill mt-5'>Verivikasi</a>
-        <br><br>
-      </div>";
-    ?>
+
 
   </div>
   <!-- /.container -->

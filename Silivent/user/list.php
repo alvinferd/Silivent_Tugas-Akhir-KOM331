@@ -79,8 +79,10 @@
 			  <li class="has-children">
 				<a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
 				<ul class="cd-secondary-nav is-hidden">
-					<li><a href="verifikasiLivent.php">Verifikasi Event</a></li>
-					<li><a href="logOut.php">Log Out</a></li>
+				<li><a href="profile.php">Profil</a></li>
+              	<li><a href="tambahLivent.php">Submit Event</a></li>
+              	<li><a href="listLiventDiajukan.php">Event Saya</a></li>
+              	<li><a href="logOut.php">Log Out</a></li>
 				</ul>
 			  </li>
 			</ul> <!-- primary-nav -->
