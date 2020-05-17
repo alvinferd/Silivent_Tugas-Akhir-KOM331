@@ -87,22 +87,6 @@ Target dari aplikasi kita adalah mahasiswa yang kesulitan dalam mencari informas
 
 ## ERD
 ![ERD](img/ERD.jpg)
-=======
-![UseCaseDiagram](img/use_case.png)
-## UseCaseDescription
-![UseCaseDescription](img/UCD1.png)
-![UseCaseDescription](img/UCD2.png)
-![UseCaseDescription](img/UCD3.png)
-![UseCaseDescription](img/UCD4.png)
-![UseCaseDescription](img/UCD5.png)
-![UseCaseDescription](img/UCD6.png)
-## Activity diagram
-
-## Gantt chart
-![GanttChart](img/gantt_chart.png)
-
-## ERD
-![ERD](img/ERD.jpg)
 
 
 ## Hasil implementasi perangkat lunak
