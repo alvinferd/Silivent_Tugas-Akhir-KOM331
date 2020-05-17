@@ -250,7 +250,6 @@
 </script>
 <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="../js/styleswitcher.js"></script>
-<script type="text/javascript" src="../js/custom-ajax-home.js"></script> 
 <script type="text/javascript" src="../js/custom-blog-home-1.js"></script>  
 <script>
   function berhasilBerhasilBerhasilHore() {

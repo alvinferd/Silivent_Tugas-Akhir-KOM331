@@ -146,7 +146,7 @@
 		    				echo 	"<a href='detailLivent.php?id=".$tangkap['id']."'class='animsition-link'>
 										<div class='blog-box-3 ".$tangkap['kategori']."'>
 											<div class='blog-box-1 grey-section'>
-												<img src='img/".$tangkap['image']."'>
+												<img src='../img/".$tangkap['image']."'>
 												<h6>".$tangkap['nama']."</h6>
 												<p>".$tangkap['shortDesc']."</p>
 												<div class='link'>&#xf178;</div>
@@ -251,8 +251,7 @@
 </script>
 <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="../js/styleswitcher.js"></script>
-<script type="text/javascript" src="../js/custom-ajax-home.js"></script> 
-<script type="text/javascript" src="js/custom-blog-home-1.js"></script>  
+<script type="text/javascript" src="../js/custom-blog-home-1.js"></script>  
 <script>
   function berhasilBerhasilBerhasilHore() {
     alert("Berhasil Membuat Akun!");

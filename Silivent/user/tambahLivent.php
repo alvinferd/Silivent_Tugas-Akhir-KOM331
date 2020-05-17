@@ -139,7 +139,7 @@
 					<div class="sixteen columns">
 						<div class="subtitle left">Deskripsi Singkat (Max 500 karakter):</div>
 						<br>
-						<textarea style="text-transform: none; font-size: 14px" name="shortDesc" placeholder="masukkan deskripsi" required></textarea>
+						<textarea rows="400" cols="500" style="text-transform: none; font-size: 14px" name="shortDesc" placeholder="masukkan deskripsi" required></textarea>
 					</div>
 
 					<div class="sixteen columns">
