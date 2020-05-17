@@ -71,18 +71,18 @@ Target dari aplikasi kita adalah mahasiswa yang kesulitan dalam mencari informas
 - Sebagai seorang mahasiswa, saya ingin memiliki tempat mengumpulkan informasi event & lomba favorit saya.
 
 ## Use case diagram
-![Use Case Diagram](Dokumentasi Laporan/img/use_case.png)
-## Use case description
-![Use Case Description](Dokumentasi Laporan/img/UCD1.png)
-![Use Case Description](Dokumentasi Laporan/img/UCD2.png)
-![Use Case Description](Dokumentasi Laporan/img/UCD3.png)
-![Use Case Description](Dokumentasi Laporan/img/UCD4.png)
-![Use Case Description](Dokumentasi Laporan/img/UCD5.png)
-![Use Case Description](Dokumentasi Laporan/img/UCD6.png)
+![UseCaseDiagram](Dokumentasi Laporan/img/use_case.png)
+## UseCaseDescription
+![UseCaseDescription](Dokumentasi Laporan/img/UCD1.png)
+![UseCaseDescription](Dokumentasi Laporan/img/UCD2.png)
+![UseCaseDescription](Dokumentasi Laporan/img/UCD3.png)
+![UseCaseDescription](Dokumentasi Laporan/img/UCD4.png)
+![UseCaseDescription](Dokumentasi Laporan/img/UCD5.png)
+![UseCaseDescription](Dokumentasi Laporan/img/UCD6.png)
 ## Activity diagram
 
 ## Gantt chart
-![Gantt Chart](Dokumentasi Laporan/img/gantt_chart.png)
+![GanttChart](Dokumentasi Laporan/img/gantt_chart.png)
 
 ## ERD
 ![ERD](Dokumentasi Laporan/img/ERD.jpg)
