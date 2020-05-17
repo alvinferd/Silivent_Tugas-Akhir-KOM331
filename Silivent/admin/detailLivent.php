@@ -35,7 +35,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background: orange;">
     <div class="container">
-      <a class="navbar-brand" href="index.php" style="color: black;">Silivent</a>
+      <a class="navbar-brand" href="index.php" style="color: black;">Silivent [ ADMIN ]</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,9 +44,8 @@
           Hallo, <?php echo $_SESSION['username']; ?>!
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="editKategori.php">Kategori Favorit</a>
           <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba/Event</a>
-          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
+          <a class="dropdown-item" href="listLiventDiajukan.php">Data Semua Lomba/Event</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
         </div>
     </div>  
@@ -120,10 +119,13 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Silivent 2020</p>
+    <h6><p class="m-0 text-center text-white"><a href="https://github.com/alvinferd/Pululululu" style="color: white">GitHub</a></p>
+      <p class="m-0 text-center text-white">© ALL RIGHTS RESERVED. MADE BY PULULULULU PROJECT</p>
+      <h4><p class="m-0 text-center text-warning">SILIVENT</p></h4>
     </div>
     <!-- /.container -->
   </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>

@@ -51,6 +51,13 @@
 	  echo "<body>";
 	}
 ?>
+<!-- cek apakah sudah login -->
+  <?php 
+  session_start();
+  if($_SESSION['stat']!="login"){
+    header("location:../logIn.php");
+  }
+  ?>
 <body>	
 	<!-- MENU
     ================================================== -->	
@@ -66,14 +73,19 @@
 		
 		<nav class="cd-nav">
 			<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
-				<li>
-					<a href="index.php" class="animsition-link">Home</a>
-				</li>
-				<li>
-					<a href="logOut.php" class="animsition-link">Log Out</a>
-				</li>
+			  <li>
+				<a href="index.php" class="animsition-link">Home</a>
+			  </li>
+			  <li class="has-children">
+				<a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
+				<ul class="cd-secondary-nav is-hidden">
+				<li><a href="verifikasiLivent.php">Verifikasi Event</a></li>
+              	<li><a href="listLiventDiajukan.php">Data Semua Event</a></li>
+              	<li><a href="logOut.php">Log Out</a></li>
+				</ul>
+			  </li>
 			</ul> <!-- primary-nav -->
-		</nav> <!-- cd-nav -->	
+		  </nav> <!-- cd-nav -->  
 	</div>
 	
 	<main class="cd-main-content">
@@ -85,81 +97,140 @@
 			<div class="parallax-5"></div>
 			<div class="fullscreen-title-home">Silivent</div>
 			<div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
+			<div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
+		        <a href="index.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Home</a>
+		    </div>
 		</section>
 
 	<!-- SECTION
     ================================================== -->	
 			<section class="section" id="scroll-link">
-				<div class="call-to-action-2">
-					<div class="container">
-						<div class="sixteen columns">
-							<h6>Pilih Kategori Lomba</h6>
-						</div>
+			<div class="call-to-action-2">
+				<div class="container">
+					<div class="sixteen columns">
+						<h6>List Lomba</h6>
 					</div>
 				</div>
-			</section>	
-			<div class="clear"></div>
-		
-			<div id="projects-grid">
-				<a class="expander" href="kategori.php?kategori=KTI ">
-					<div class="portfolio-box-1 photography">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/essay.jpg" alt="">
-						<h6>Essay & KTI</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Fotografi">
-					<div class="portfolio-box-1 illustration">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/fotografi.jpg" alt="" >
-						<h6>Fotografi</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Debat">
-					<div class="portfolio-box-1 motion-graphics">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/debat.jpg" alt="" ">
-						<h6>Debat</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Informatika">
-					<div class="portfolio-box-1 web-design">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/IT.jpg" alt="" >
-						<h6>IT</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Seni dan Budaya">
-					<div class="portfolio-box-1 photography">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/seni.jpg" alt="" >
-						<h6>Seni</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Olahraga">
-					<div class="portfolio-box-1 illustration">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/olahraga.jpg" alt="" >
-						<h6>Olahraga</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=E-Sport">
-					<div class="portfolio-box-1 motion-graphics">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/esport.jpg" alt="" >
-						<h6>E-Sport</h6>
-					</div>
-				</a>
-				<a class="expander" href="kategori.php?kategori=Lainnya">
-					<div class="portfolio-box-1 web-design">
-						<div class="mask-1"></div>
-						<img src="../images/kategori/lainnya.jpg" alt="" >
-						<h6>Lainnya</h6>
-					</div>
-				</a>
 			</div>
-  </main>	
-		</section>		
+		</section>
+		
+	<!-- FILTER -->
+		<section style="padding-top: 20px; padding-bottom: 20px">
+			<div class="container">
+				<div class="sixteen columns">
+					<div id="portfolio-filter">
+						<ul id="filter">
+							<li><a href="#" class="current" data-filter="*" title="">Show All</a></li>
+							<li><a href="#" data-filter=".KTI" title="">KTI</a></li>
+							<li><a href="#" data-filter=".Fotografi" title="">Fotografi</a></li>
+							<li><a href="#" data-filter=".Debat" title="">Debat</a></li>
+							<li><a href="#" data-filter=".Informatika" title="">IT</a></li>
+							<li><a href="#" data-filter=".Seni" title="">Seni</a></li>
+							<li><a href="#" data-filter=".Olahraga" title="">Olahraga</a></li>
+							<li><a href="#" data-filter=".E-Sport" title="">E-Sport</a></li>
+							<li><a href="#" data-filter=".Lainnya" title="">Lainnya</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	<!---------->
+			<div class="clear"></div>		
+			<div class="blog-wrapper">
+				<div id="blog-grid-masonry">
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Seni">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+					<a href="image-post.html" class="animsition-link">
+						<div class="blog-box-3 Informatika">
+							<div class="blog-box-1 grey-section">
+								<img src="images/blog/1.jpg"  alt="">
+								<h6>Latest post</h6>
+								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
+								<div class="link">&#xf178;</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>			
+	</main>		
 	<!-- FOOTER
     ================================================== -->	
 		<section class="section footer-bottom">	
@@ -251,7 +322,8 @@
 </script>
 <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="../js/styleswitcher.js"></script>
-<script type="text/javascript" src="../js/custom-ajax-home.js"></script>  
+<script type="text/javascript" src="../js/custom-ajax-home.js"></script> 
+<script type="text/javascript" src="js/custom-blog-home-1.js"></script>  
 <script>
   function berhasilBerhasilBerhasilHore() {
     alert("Berhasil Membuat Akun!");

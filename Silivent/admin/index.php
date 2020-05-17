@@ -97,7 +97,7 @@
 			<div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
 			<div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
         <a href="list.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
-        <a href="tambahLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Tambah Event atau Lomba</a>
+        <a href="listLiventDiajukan.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Pengaturan Data Event atau Lomba</a>
         <a href="verifikasiLivent.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Verifikasi Event atau Lomba</a>
 			</div>
 		</section>

@@ -62,12 +62,12 @@
                     <div class="col-md-4">
                     <div class="profile-work">
                             <p>My Event</p>
-                            <a href="profile.php">List All of My Event</a><br/>
+                            <a href="listLiventDiajukan.php">Event Saya</a><br/>
                             <p>Kategori Favorit</p>
-                            <a href="profile.php">Web Designer</a><br/>
-                            <a href="profile.php">Web Developer</a><br/>
-                            <a href="profile.php">WordPress</a><br/>
-                            <a href="profile.php">PHP, .Net</a><br/>
+                            <a href="profile.php">Informatika</a><br/>
+                            <a href="profile.php">E-Sport</a><br/>
+                            <a href="profile.php">Fotografi</a><br/>
+                            <a href="profile.php">Seni dan Budaya</a><br/>
                         </div>
                     </div>
                     <div class="col-md-8">
