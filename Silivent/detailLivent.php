@@ -1,4 +1,4 @@
-<?php include("../config.php"); ?>
+<?php include("../config.php"); session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,13 +25,6 @@
 </head>
 
 <body>
-  <?php 
-  session_start();
-  if($_SESSION['stat']!="login" OR $_SESSION['admin']!="TRUE"){
-    header("location:UMAD.html");
-  }
-  ?>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background: orange;">
     <div class="container">
@@ -44,8 +37,8 @@
           Hallo, <?php echo $_SESSION['username']; ?>!
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="editKategori.php">Kategori Favorit</a>
-          <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba/Event</a>
+          <a class="dropdown-item" href="profile.php">Profile</a>
+          <a class="dropdown-item" href="tambahLivent.php">Submit Lomba/Event</a>
           <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
         </div>

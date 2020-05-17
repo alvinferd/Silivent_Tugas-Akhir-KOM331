@@ -45,7 +45,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="editKategori.php">Kategori Favorit</a>
           <a class="dropdown-item" href="verifikasiLivent.php">Verifikasi Lomba/Event</a>
-          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Yang Diajukan</a>
+          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
         </div>
     </div>  
@@ -100,22 +100,14 @@
       ?>
       <h2 class="masthead-subheading mb-0">Pilih Kategori : </h2>
       <select name="kategori">
-            <option value="Statistika">Statistika</option>
-            <option value="Geofisika dan Meteorologi">Geofisika dan Meteorologi</option>
-            <option value="Biologi">Biologi</option>
-            <option value="Kimia">Kimia</option>
+      <option value="KTI">KTI</option>
+            <option value="Fotografi">Fotografi</option>
+            <option value="Debat">Debat</option>
             <option value="Informatika">Informatika</option>
-            <option value="Fisika">Fisika</option>
-            <option value="Biokimia">Biokimia</option>
-            <option value="Pertanian">Pertanian</option>
-            <option value="Kedokteran">Kedokteran</option>
-            <option value="Perikanan dan Perairan">Perikanan dan Perairan</option>
-            <option value="Peternakan">Peternakan</option>
-            <option value="Kehutanan">Kehutanan</option>
-            <option value="Teknologi">Teknologi</option>
-            <option value="Matematika">Matematika</option>
-            <option value="Ekonomi, Management, dan Bisnis">Ekonomi, Management, dan Bisnis</option>
-            <option value="Lainnya">Lainnya</option>                
+            <option value="Seni dan Budaya">Seni dan Budaya</option>
+            <option value="Olahraga">Olahraga</option>
+            <option value="E-Sport">E-Sport</option>
+            <option value="Lainnya">Lainnya</option>                 
         </select>
       <br>
       <input type="submit" name="edit" value="Simpan" class="btn btn-primary btn-xl rounded-pill mt-5">

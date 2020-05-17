@@ -1,5 +1,4 @@
 <?php include("../config.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +29,7 @@
   if($_SESSION['stat']!="login"){
     header("location:../logIn.php");
   }
+
   ?>
   <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -43,7 +43,7 @@
           Hallo, <?php echo $_SESSION['username']; ?>!
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="profile.php">Profile</a>
+        <a class="dropdown-item" href="profile.php">Profile</a>
           <a class="dropdown-item" href="tambahLivent.php">Submit Lomba/Event</a>
           <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
           <a class="dropdown-item" href="logOut.php">Log Out</a>
@@ -59,7 +59,7 @@
     <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Perbarui Lomba dan Event</h1>
+        <h1 class="masthead-heading mb-0">Lomba/Event</h1>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -72,48 +72,45 @@
     <br><br>
     <div style="text-align: center;">
 
+    <table border="1" style="width:100%; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th>Nama Event</th>
+      <th>Status</th>
+      <th>Tindakan</th>
+    </tr>
+  </thead>
+  <tbody>
+
     <?php
-        if(isset($_GET['id'])){
-          $id = $_GET['id'];
-          $query = mysqli_query($koneksi, "select * from event where id = $id");
-          $tangkap = mysqli_fetch_array($query);
-          echo "<form action='editLiventProc.php?id=".$id."' method='post' enctype='multipart/form-data'>";  
-          echo "<h2 class='masthead-subheading mb-0'>Nama Lengkap Anda : </h2>
-          <textarea cols='100' rows='1' name='creator' required>".$tangkap['creator']."</textarea>
-          <br><br>
-          <h2 class='masthead-subheading mb-0'>Nama Institusi : </h2>
-          <textarea cols='100' rows='1' name='institusi' required>".$tangkap['institusi']."</textarea>
-          <br><br>
-          <h2 class='masthead-subheading mb-0'>Nama Lomba/Event : </h2>
-          <textarea cols='100' rows='1' name='nama' required>".$tangkap['nama']."</textarea>
-          <br><br>
-          <h2 class='masthead-subheading mb-0'>Masukkan Gambar Lomba/Event : </h2>
-          <input type='file' name='image' required>
-          <br><br>
-          <h2 class='masthead-subheading mb-0'>Masukkan Deskripsi Singkat (Max 500 Karakter) : </h2>
-          <textarea name='shortDesc' rows='5' cols='100' required>".$tangkap['shortDesc']."</textarea>
-          <br><br>
-          <h2 class='masthead-subheading mb-0'>Masukkan Deskripsi Lengkap : </h2>
-          <textarea name='longDesc' rows='50' cols='100' required>".$tangkap['longDesc']."</textarea>
-          <br><br>";
-        }
-      ?>
-      <h2 class="masthead-subheading mb-0">Pilih Kategori : </h2>
-      <select name="kategori">
-            <option value="KTI">KTI</option>
-            <option value="Fotografi">Fotografi</option>
-            <option value="Debat">Debat</option>
-            <option value="Informatika">Informatika</option>
-            <option value="Seni dan Budaya">Seni dan Budaya</option>
-            <option value="Olahraga">Olahraga</option>
-            <option value="E-Sport">E-Sport</option>
-            <option value="Lainnya">Lainnya</option>              
-        </select>
-      <br>
-      <input type="submit" name="edit" value="Simpan" class="btn btn-primary btn-xl rounded-pill mt-5">
-    </form>
-    <br>
-    <br>
+    $kategori = $_GET['kategori'];
+    $query = mysqli_query($koneksi, "select * from event where kategori='$kategori'");
+
+
+    while($tangkap = mysqli_fetch_array($query)){
+      echo "<tr>";
+
+      echo "<td>".$tangkap['nama']."</td>";
+      if ($tangkap['verivied'] == 0) {
+        echo "<td>Menunggu diverifikasi</td>";
+      }else{
+        echo "<td>Terverifikasi</td>";
+      }
+
+      echo "<td>";
+      echo "<a href='detailLivent.php?id=".$tangkap['id']."'>Lihat</a>";
+      echo "</td>";
+
+      echo "</tr>";
+
+      }
+
+
+    ?>
+
+  </tbody>
+  </table>
+  <br><br>
 
     </div>
     <!-- /.row -->
