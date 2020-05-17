@@ -1,3 +1,4 @@
+<?php include("../config.php"); ?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
@@ -85,11 +86,15 @@
 	<!-- HOME SECTION
     ================================================== -->
 	
-		<section class="section parallax-section parallax-section-padding-top-bottom-pagetop section-page-top-title">
-			<div class="parallax-5"></div>
-			<div class="fullscreen-title-home">Silivent</div>
-			<div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
-		</section>
+	<section class="section parallax-section parallax-section-padding-top-bottom-pagetop section-page-top-title">
+      <div class="parallax-5"></div>
+      <div class="fullscreen-title-home">Silivent</div>
+      <div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
+      <div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
+        <a href="list.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Lihat Semua Event & Lomba</a>
+        <a href="listLiventDiajukan.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Event atau Lomba Saya</a>
+      </div>
+    </section>
 
 	<!-- SECTION
     ================================================== -->	

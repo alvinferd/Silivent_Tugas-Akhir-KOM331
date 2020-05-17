@@ -98,6 +98,9 @@
 			<div class="parallax-5"></div>
 			<div class="fullscreen-title-home">Silivent</div>
 			<div class="fullscreen-subtitle-home">Sistem Informasi Event & Lomba</div>
+			<div style="text-align: center; margin-top: 5%; margin-bottom: -5%">
+		        <a href="index.php" class="button-shortcodes text-size-4 text-padding-4 version-2">Home</a>
+		    </div>
 		</section>
 
 	<!-- SECTION
@@ -114,57 +117,65 @@
 			<div class="clear"></div>
 		
 			<div id="projects-grid">
-				<a class="expander" href="kategori.php?kategori=KTI ">
+				<a class="expander">
 					<div class="portfolio-box-1 photography">
+						<a href="kategori.php?kategori=KTI ">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/essay.jpg" alt="">
 						<h6>Essay & KTI</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Fotografi">
+				<a class="expander">
 					<div class="portfolio-box-1 illustration">
+						<a href="kategori.php?kategori=Fotografi">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/fotografi.jpg" alt="" >
 						<h6>Fotografi</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Debat">
+				<a class="expander">
 					<div class="portfolio-box-1 motion-graphics">
+						<a href="kategori.php?kategori=Debat">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/debat.jpg" alt="" ">
 						<h6>Debat</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Informatika">
+				<a class="expander">
 					<div class="portfolio-box-1 web-design">
+						<a href="kategori.php?kategori=Informatika">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/IT.jpg" alt="" >
 						<h6>IT</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Seni dan Budaya">
+				<a class="expander">
 					<div class="portfolio-box-1 photography">
+						<a href="kategori.php?kategori=Seni dan Budaya">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/seni.jpg" alt="" >
 						<h6>Seni</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Olahraga">
+				<a class="expander">
 					<div class="portfolio-box-1 illustration">
+						<a  href="kategori.php?kategori=Olahraga">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/olahraga.jpg" alt="" >
 						<h6>Olahraga</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=E-Sport">
+				<a class="expander">
 					<div class="portfolio-box-1 motion-graphics">
+						<a href="kategori.php?kategori=E-Sport">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/esport.jpg" alt="" >
 						<h6>E-Sport</h6>
 					</div>
 				</a>
-				<a class="expander" href="kategori.php?kategori=Lainnya">
+				<a class="expander">
 					<div class="portfolio-box-1 web-design">
+						<a href="kategori.php?kategori=Lainnya">
 						<div class="mask-1"></div>
 						<img src="../images/kategori/lainnya.jpg" alt="" >
 						<h6>Lainnya</h6>
