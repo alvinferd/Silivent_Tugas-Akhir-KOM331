@@ -8,7 +8,7 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Silivent - Sistem Pencari Lomba dan Event</title>
+	<title>Silivent - Sistem Informasi Lomba dan Event</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 

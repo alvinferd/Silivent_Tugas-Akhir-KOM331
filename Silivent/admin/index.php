@@ -1,6 +1,8 @@
+<?php include("../config.php"); ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 
  	<!-- Basic Page Needs
@@ -27,17 +29,7 @@
 	<link rel="stylesheet" href="../css/owl.carousel.css"/>
 	<link rel="stylesheet" href="../css/retina.css"/>
 	<link rel="stylesheet" href="../css/colorbox.css"/>
-	<link rel="stylesheet" href="../css/animsition.min.css"/>
-	
-	<link rel="alternate stylesheet" type="text/css" href="../css/colors/color-gold.css" title="1">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-2.css" title="2">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-3.css" title="3">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-4.css" title="4">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-5.css" title="5">	
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-6.css" title="6">	
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-7.css" title="7">
-	
-	
+	<link rel="stylesheet" href="../css/animsition.min.css"/>	
 </head>
 
 <?php
@@ -64,7 +56,7 @@
 	
 	<div class="header-top">
     <header class="cd-main-header">
-      <a class="cd-logo animsition-link" href="index.php">silivent</a>
+      <a class="cd-logo animsition-link" href="index.php">silivent[admin]</a>
 
       <ul class="cd-header-buttons">
         <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
@@ -104,7 +96,6 @@
 		
 	 <!-- SECTION
     ================================================== -->
-
     <section class="section" id="scroll-link">
 			<div class="call-to-action-2">
 				<div class="container">

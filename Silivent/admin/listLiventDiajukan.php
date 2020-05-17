@@ -66,7 +66,7 @@
 	
 	<div class="header-top">
 		<header class="cd-main-header">
-			<a class="cd-logo animsition-link" href="index.php">silivent</a>
+			<a class="cd-logo animsition-link" href="index.php">silivent[admin]</a>
 
 			<ul class="cd-header-buttons">
 				<li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>

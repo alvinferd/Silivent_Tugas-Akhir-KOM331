@@ -1,3 +1,4 @@
+<?php include("../config.php"); session_start(); ?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
@@ -134,101 +135,28 @@
 					</div>
 				</div>
 			</div>
-	<!---------->
+	<!----- ini Query event bos ----->
 			<div class="clear"></div>		
 			<div class="blog-wrapper">
-				<div id="blog-grid-masonry">
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Seni">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-					<a href="image-post.html" class="animsition-link">
-						<div class="blog-box-3 Informatika">
-							<div class="blog-box-1 grey-section">
-								<img src="images/blog/1.jpg"  alt="">
-								<h6>Latest post</h6>
-								<p>Lorem ipsum dolor sit consectetur amet, adipisicing elit.</p>
-								<div class="link">&#xf178;</div>
-							</div>
-						</div>
-					</a>
-				</div>
+				<div id='blog-grid-masonry'>
+				<?php
+	    			$query = mysqli_query($koneksi,"SELECT * FROM event");
+	    			while($tangkap = mysqli_fetch_array($query)){
+		    			if ($tangkap['verivied'] == 1) {
+		    				echo 	"<a href='detailLivent.php?id=".$tangkap['id']."'class='animsition-link'>
+										<div class='blog-box-3 ".$tangkap['kategori']."'>
+											<div class='blog-box-1 grey-section'>
+												<img src='img/".$tangkap['image']."'>
+												<h6>".$tangkap['nama']."</h6>
+												<p>".$tangkap['shortDesc']."</p>
+												<div class='link'>&#xf178;</div>
+											</div>
+										</div>
+									</a>";
+		    			}
+	    			}
+	    		?>
+	    		</div>
 			</div>
 		</section>			
 	</main>		
