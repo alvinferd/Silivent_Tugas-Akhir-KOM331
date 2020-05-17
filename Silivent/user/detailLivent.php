@@ -1,128 +1,215 @@
 <?php include("../config.php"); session_start(); ?>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Silivent - Sistem Pencari Lomba dan Event</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-  <title>Silivent - Sistem Informasi Lomba dan Event</title>
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- CSS
+  ================================================== -->
+	<!-- Bootstrap core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/one-page-wonder.min.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="../css/base.css"/>
+	<link rel="stylesheet" href="../css/skeleton.css"/>
+	<link rel="stylesheet" href="../css/layout.css"/>
+	<link rel="stylesheet" href="../css/settings.css"/>
+	<link rel="stylesheet" href="../css/font-awesome.css" />
+	<link rel="stylesheet" href="../css/owl.carousel.css"/>
+	<link rel="stylesheet" href="../css/retina.css"/>
+	<link rel="stylesheet" href="../css/colorbox.css"/>
+	<link rel="stylesheet" href="../css/animsition.min.css"/>
+	
+	<link rel="alternate stylesheet" type="text/css" href="../css/colors/color-gold.css" title="1">
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-2.css" title="2">
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-3.css" title="3">
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-4.css" title="4">
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-5.css" title="5">	
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-6.css" title="6">	
+    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-7.css" title="7">
+	
+	
+	
 </head>
+<body>	
+	<!-- MENU
+    ================================================== -->	
+	
+	<div class="header-top">
+		<header class="cd-main-header">
+			<a class="cd-logo animsition-link" href="index.php">silivent</a>
 
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background: orange;">
-    <div class="container">
-      <a class="navbar-brand" href="index.php" style="color: black;">Silivent</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hallo, <?php echo $_SESSION['username']; ?>!
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="profile.php">Profile</a>
-          <a class="dropdown-item" href="tambahLivent.php">Submit Lomba/Event</a>
-          <a class="dropdown-item" href="listLiventDiajukan.php">Lomba/Event Saya</a>
-          <a class="dropdown-item" href="logOut.php">Log Out</a>
-        </div>
-    </div>  
-    </div>
-  </nav>
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <!-- Post Content Column -->
-      <div class="col-lg-8">
-
-        <!-- Title -->
-        <?php
-          if(isset($_GET['id'])){
-            $id = $_GET['id'];
-
-            $query = mysqli_query($koneksi,"SELECT * FROM event WHERE id = $id");
-            $tangkap = mysqli_fetch_array($query);
-            echo
-              "<br><br>
-              <h1 class='mt-4'>".$tangkap['nama']."</h1>
-
-              <!-- Author -->
-              <p class='lead'>
-                Oleh
-                ".$tangkap['creator']."
-                dari ".$tangkap['institusi']."
-              </p>
-
-        <!-- Preview Image -->
-        <div style='text-align: center;'>
-          <img class='img-fluid rounded' src='../img/".$tangkap['image']."' width='300px' alt=''>
-        </div>
-        <hr>
-
-        <!-- Post Content -->
-        <p class='lead'>Deskripsi Event/Lomba :</p>
-
-        <p class='lead'>".$tangkap['longDesc']."</p>
-
-        <hr>
-
-      </div>
-
-      <!-- Sidebar Widgets Column -->
-      <div class='col-md-4'>
-
-
-        <!-- Side Widget -->
-        <br><br><br><br><br><br>
-        <div class='card my-4'>
-          <h5 class='card-header'>Kategori : ".$tangkap['kategori']."</h5>
-        </div>";
-      }else{
+			<ul class="cd-header-buttons">
+				<li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
+			</ul> <!-- cd-header-buttons -->
+		</header>
+		
+		<nav class="cd-nav">
+			<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+			  <li>
+				<a href="index.php" class="animsition-link">Home</a>
+			  </li>
+			  <li class="has-children">
+				<a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
+				<ul class="cd-secondary-nav is-hidden">
+				<li><a href="profile.php">Profil</a></li>
+              	<li><a href="tambahLivent.php">Submit Event</a></li>
+              	<li><a href="listLiventDiajukan.php">Event Saya</a></li>
+              	<li><a href="logOut.php">Log Out</a></li>
+				</ul>
+			  </li>
+			</ul> <!-- primary-nav -->
+		  </nav> <!-- cd-nav -->  
+	</div>
+	
+	<main class="cd-main-content">
+	
+	<!-- SECTION
+    ================================================== -->
+<?php
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $query = mysqli_query($koneksi,"SELECT * FROM event WHERE id = $id");
+        $tangkap = mysqli_fetch_array($query);
+echo"	<section class='section white-section section-home-padding-top'>
+			<div class='container'>
+				<div class='sixteen columns'>
+					<div class='section-title left'>
+						<h1>".$tangkap['nama']."</h1>
+						<div class='subtitle left big'>
+							Oleh: ".$tangkap['creator']."
+							dari ".$tangkap['institusi']."
+						</div>
+					</div>
+				</div>
+			</div>
+				
+	</section>
+	<section class='section white-section section-padding-bottom'>
+			<div class='container'>
+				<div class='twelve columns'>
+					<div class='blog-big-wrapper grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
+						<img src='../img/".$tangkap['image']."'>
+						<h4>Deskripsi Event & Lomba</h4>
+						<p>".$tangkap['longDesc'].".</p>					
+				</div>	
+				<div class='post-tags-categ grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
+					<p>Categories: <a href='#''>".$tangkap['kategori']."</a></p>
+				</div>
+			</div>
+		</div>
+	</section>";
+	}
+	else{
         die("akses dilarang...");
-      }
-      ?>    
+    }		
+?>
+	<!-- FOOTER
+    ================================================== -->	
+    <section class="section footer-bottom">	
+    	<div class="container">
+    		<div class="sixteen columns">
+    			<h6><i class="icon-footer">&#xf09b;</i><a href="https://github.com/alvinferd/Pululululu" style="color: white">GitHub</a></h6>
+    			<p>© ALL RIGHTS RESERVED. MADE BY PULULULULU PROJECT</p>
+    		</div>	
+    	</div>
+    </section>
+		
 
-      </div>
-
-    </div>
-    <!-- /.row -->
-
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Silivent 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	<div class="scroll-to-top">&#xf106;</div>	
+		
+	<!-- JAVASCRIPT
+    ================================================== -->
+<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/modernizr.custom.js"></script> 
+<script type="text/javascript" src="../js/jquery.mobile.custom.min.js"></script>
+<script type="text/javascript" src="../js/retina-1.1.0.min.js"></script>		
+<script type="text/javascript" src="../js/jquery.animsition.min.js"></script>
+<script type="text/javascript">
+(function($) { "use strict";
+	$(document).ready(function() {
+	  
+	  $(".animsition").animsition({
+	  
+		inClass               :   'zoom-in-sm',
+		outClass              :   'zoom-out-sm',
+		inDuration            :    1500,
+		outDuration           :    800,
+		linkElement           :   '.animsition-link', 
+		loading               :    true,
+		loadingParentElement  :   'body', 
+		loadingClass          :   'animsition-loading',
+		unSupportCss          : [ 'animation-duration',
+								  '-webkit-animation-duration',
+								  '-o-animation-duration'
+								],
+		overlay               :   false,
+		overlayClass          :   'animsition-overlay-slide',
+		overlayParentElement  :   'body'
+	  });
+	});  
+})(jQuery);
+</script>
+<script type="text/javascript" src="../js/jquery.easing.js"></script>	
+<script type="text/javascript" src="../js/jquery.hidescroll.min.js"></script>	
+<script type="text/javascript">
+	$('.header-top').hidescroll();
+</script>
+<script type="text/javascript" src="../js/smoothScroll.js"></script>
+<script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script> 
+<script type="text/javascript" src="../js/masonry.js"></script> 
+<script type="text/javascript" src="../js/isotope.js"></script> 
+<script type="text/javascript" src="../js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="../js/waypoints.min.js"></script>
+<script type="text/javascript" src="../js/scrollReveal.js"></script>
+<script type="text/javascript">
+(function($) { "use strict";
+      window.scrollReveal = new scrollReveal();
+})(jQuery);
+</script>
+<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+<script type="text/javascript"> 
+(function($) { "use strict";          
+			jQuery(document).ready(function() {
+				var offset = 450;
+				var duration = 500;
+				jQuery(window).scroll(function() {
+					if (jQuery(this).scrollTop() > offset) {
+						jQuery('.scroll-to-top').fadeIn(duration);
+					} else {
+						jQuery('.scroll-to-top').fadeOut(duration);
+					}
+				});
+				
+				jQuery('.scroll-to-top').click(function(event) {
+					event.preventDefault();
+					jQuery('html, body').animate({scrollTop: 0}, duration);
+					return false;
+				})
+			});
+})(jQuery);
+</script>
+<script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../js/styleswitcher.js"></script>
+<script type="text/javascript" src="../js/custom-ajax-home.js"></script>  
+<script>
+  function berhasilBerhasilBerhasilHore() {
+    alert("Berhasil Membuat Akun!");
+  }
+</script>	  
+<!-- End Document
+================================================== -->
 </body>
-
-
 </html>
