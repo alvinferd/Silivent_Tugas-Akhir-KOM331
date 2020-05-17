@@ -29,18 +29,7 @@
 	<link rel="stylesheet" href="../css/owl.carousel.css"/>
 	<link rel="stylesheet" href="../css/retina.css"/>
 	<link rel="stylesheet" href="../css/colorbox.css"/>
-	<link rel="stylesheet" href="../css/animsition.min.css"/>
-	
-	<link rel="alternate stylesheet" type="text/css" href="../css/colors/color-gold.css" title="1">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-2.css" title="2">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-3.css" title="3">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-4.css" title="4">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-5.css" title="5">	
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-6.css" title="6">	
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-7.css" title="7">
-	
-	
-	
+	<link rel="stylesheet" href="../css/animsition.min.css"/>	
 </head>
 
 <?php
@@ -62,10 +51,9 @@
 <body>	
 	<!-- MENU
     ================================================== -->	
-	
 	<div class="header-top">
 		<header class="cd-main-header">
-			<a class="cd-logo animsition-link" href="index.php">silivent</a>
+			<a class="cd-logo animsition-link" href="index.php">silivent[admin]</a>
 
 			<ul class="cd-header-buttons">
 				<li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
@@ -80,7 +68,7 @@
 			  <li class="has-children">
 				<a href="#">Halo, <?php echo $_SESSION['username']; ?>!</a>
 				<ul class="cd-secondary-nav is-hidden">
-				<li><a href="verifikasiLivent.php">Verifikasi Event</a></li>
+              	<li><a href="verifikasiLivent.php">Verifikasi Event</a></li>
               	<li><a href="listLiventDiajukan.php">Data Semua Event</a></li>
               	<li><a href="logOut.php">Log Out</a></li>
 				</ul>
