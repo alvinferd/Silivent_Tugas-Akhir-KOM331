@@ -1,3 +1,4 @@
+<?php include("../config.php"); ?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
@@ -7,7 +8,7 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Silivent - Sistem Pencari Lomba dan Event</title>
+	<title>Silivent</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -41,7 +42,6 @@
 	
 	
 </head>
-
 <!-- cek apakah sudah login -->
   <?php 
   session_start();
@@ -97,51 +97,58 @@
 		      <div class="call-to-action-2">
 		        <div class="container">
 		          <div class="sixteen columns">
-		            <h6>Submit Event</h6>
+		            <h6>Perbarui Lomoba atau Event</h6>
 		          </div>
 		        </div>
 		      </div>
 		    </section> 	
 			<div class="clear"></div>
 			<section class="section white-section section-padding-top-bottom">
-		
-			<div class="container">				
-				<form name="ajax-form" id="ajax-form" action="LiventProc.php" method="post" enctype="multipart/form-data">
-					<div class="sixteen columns">
-						<div class="subtitle left">Nama Lengkap:</div>
+			<div class="container"
+			 <?php
+		        if(isset($_GET['id'])){
+		          $id = $_GET['id'];
+		          $query = mysqli_query($koneksi, "select * from event where id = $id");
+		          $tangkap = mysqli_fetch_array($query);
+		          echo "<form name='ajax-form' id='ajax-form' action='editLiventProc.php?id=".$id."' method='post' enctype='multipart/form-data'>";  
+		          echo "
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Nama Lengkap:</div>
 						<br>
-						<input style="text-transform: none; font-size: 14px" type="text" size="100" name="creator" required>
+						<input style='text-transform: none; font-size: 14px' type='text' size='100' name='creator' value=\"".$tangkap['creator']."\" required>
 					</div>
 					
-					<div class="sixteen columns">
-						<div class="subtitle left">Nama Institusi:</div>
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Nama Institusi:</div>
 						<br>
-						<input style="text-transform: none; font-size: 14px" type="text" name="institusi" size="100" required>
+						<input style='text-transform: none; font-size: 14px' type='text' name='institusi' size='100' value=\"".$tangkap['institusi']."\" required>
 					</div>
 					
-					<div class="sixteen columns">
-						<div class="subtitle left">Nama Lomba/Event:</div>
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Nama Lomba/Event:</div>
 						<br>
-						<input style="text-transform: none; font-size: 14px" type="text" name="nama" size="100" required>
+						<input style='text-transform: none; font-size: 14px' type='text' name='nama'  size='100' value=\"".$tangkap['nama']."\" required>
 					</div>
 
-					<div class="sixteen columns">
-						<div class="subtitle left">Masukkan Gambar Lomba/Event:</div>
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Masukkan Gambar Lomba/Event:</div>
 						<br>
-						<input style="text-transform: none; font-size: 14px" type="file" name="image" required>
+						<input style='text-transform: none; font-size: 14px' type='file' name='image' value=\"".$tangkap['image']."\" required>
 					</div>
 
-					<div class="sixteen columns">
-						<div class="subtitle left">Deskripsi Singkat (Max 500 karakter):</div>
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Deskripsi Singkat (Max 500 karakter):</div>
 						<br>
-						<textarea style="text-transform: none; font-size: 14px" name="shortDesc" placeholder="masukkan deskripsi" required></textarea>
+						<textarea style='text-transform: none; font-size: 14px' name='shortDesc' placeholder='masukkan deskripsi' required>".$tangkap['shortDesc']."</textarea>
 					</div>
 
-					<div class="sixteen columns">
-						<div class="subtitle left">Deskripsi Lengkap (Max 500 karakter):</div>
+					<div class='sixteen columns'>
+						<div class='subtitle left'>Deskripsi Lengkap (Max 500 karakter):</div>
 						<br>
-						<textarea style="text-transform: none; font-size: 14px" name="longDesc" placeholder="masukkan deskripsi" required></textarea>
-					</div>
+						<textarea style='text-transform: none; font-size: 14px' name='longDesc' placeholder='masukkan deskripsi' required>".$tangkap['longDesc']."</textarea>
+					</div>";
+		        }
+		      ?>				
 					<div class="sixteen columns">
 						<div class="subtitle left">Pilih Kategori:</div>
 						<br>
@@ -159,7 +166,7 @@
 					
 					<div class="sixteen columns">
 						<div id="button-con">
-							<button class="send_message" type="submit" name="tambah" value="Submit">submit</button>
+							<button class="send_message" type="submit" name="edit" value="Simpan">submit</button>
 						</div>
 					</div>
 					<div class="clear"></div>	
@@ -262,7 +269,7 @@
 <script type="text/javascript" src="../js/custom-ajax-home.js"></script>  
 <script>
   function berhasilBerhasilBerhasilHore() {
-    alert("Berhasil Membuat Akun!");
+    alert("Berhasil Mengedit Event/Lomba!");
   }
 </script>	  
 <!-- End Document
