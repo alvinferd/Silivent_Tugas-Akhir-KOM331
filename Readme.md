@@ -55,6 +55,7 @@ Tingkat antusiasme mahasiswa IPB dalam mengikuti event dan lomba dapat dikatakan
 ### Software Design
 - Software memiliki desain antarmuka yang ramah bagi pengguna
 - Memiliki unsur ergonomis dan responsif
+- Memiliki Keamanan yang baik
 
 ### Engineering Process
 Software dibuat dengan proses Waterfall Model
@@ -80,7 +81,6 @@ Target dari aplikasi kita adalah mahasiswa yang kesulitan dalam mencari informas
 ![UseCaseDescription](img/UCD4.png)
 ![UseCaseDescription](img/UCD5.png)
 ![UseCaseDescription](img/UCD6.png)
-## Activity diagram
 
 ## Gantt chart
 ![GanttChart](img/gantt_chart.png)
