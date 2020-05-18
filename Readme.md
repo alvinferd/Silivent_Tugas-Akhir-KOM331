@@ -89,4 +89,62 @@ Target dari aplikasi kita adalah mahasiswa yang kesulitan dalam mencari informas
 ![ERD](img/ERD.jpg)
 
 
-## Hasil implementasi perangkat lunak
+# Hasil implementasi perangkat lunak
+
+Berikut adalah hasil screenshoot dari fitur fitur yang ada pada aplikasi kami beserta sedikit penjelasan.
+
+## USER
+Terdapat 3 jenis User yang memiliki akses berbeda terhadap fitur di dalam aplikasi, yaitu sebagai berikut
+
+1. Guess ( User yang tidak mendaftar )
+![Aplikasi](img/1.png)
+2. Registered User ( User yang telah mendaftar )
+![Aplikasi](img/2.png)
+3. Admin
+![Aplikasi](img/3.png)
+
+## FITUR
+
+1. Home
+![Aplikasi](img/4.png)
+![Aplikasi](img/5.png)
+
+2. Log In
+![Aplikasi](img/10.png)
+
+3. Sign Up
+![Aplikasi](img/11.png)
+
+4. Profile
+![Aplikasi](img/12.png)
+![Aplikasi](img/15.png)
+
+5. Edit Profile
+![Aplikasi](img/16.png)
+
+6. Lihat Event/Lomba
+![Aplikasi](img/6.png)
+![Aplikasi](img/7.png)
+![Aplikasi](img/8.png)
+![Aplikasi](img/9.png)
+
+7. Submit Event/Lomba
+![Aplikasi](img/13.png)
+
+8. Event Saya
+![Aplikasi](img/14.png)
+
+9. Verifikasi Event/Lomba
+![Aplikasi](img/17.png)
+
+10. Pengaturan Semua Event/Lomba
+![Aplikasi](img/18.png)
+
+## KEAMANAN
+
+1. Hashed Password
+![Aplikasi](img/20.png)
+![Aplikasi](img/21.png)
+
+2. Filter Path Access
+![Aplikasi](img/22.png)
