@@ -202,6 +202,9 @@ Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 
 
 ![Aplikasi](img/9.png)
     Tampilan Event sesuai kategori tertentu
+    
+![Aplikasi](img/detailevent.png)
+    Tampilan detail Event (<a href="Silivent/detailLivent.php">Link Code</a>)
 
 
 7. Submit Event/Lomba <a href="Silivent/user/profile.php">Link Code</a>
