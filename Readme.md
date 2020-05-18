@@ -94,57 +94,131 @@ Target dari aplikasi kita adalah mahasiswa yang kesulitan dalam mencari informas
 Berikut adalah hasil screenshoot dari fitur fitur yang ada pada aplikasi kami beserta sedikit penjelasan.
 
 ## USER
+
 Terdapat 3 jenis User yang memiliki akses berbeda terhadap fitur di dalam aplikasi, yaitu sebagai berikut
 
 1. Guess ( User yang tidak mendaftar )
+
 ![Aplikasi](img/1.png)
+
+    Guess hanya memiliki akses ke fitur lihat semua event/lomba, yang berisi list event/lomba yang tersedia.
+
+
 2. Registered User ( User yang telah mendaftar )
+
 ![Aplikasi](img/2.png)
+
+    Registered User memiliki akses ke fitur lihat semua event/lomba, membuat dan submit event/lomba , melihat daftar event/lomba yang pernah dibuat, dan mengakses profile serta mengedit profile.
+
+
 3. Admin
 ![Aplikasi](img/3.png)
+
+    Admin memiliki semua akses terhadap fitur, termasuk memverifikasi submitan registered user dan melakukan pengaturan terhadap semua event/lomba yang tersedia.
+
 
 ## FITUR
 
 1. Home
+
+Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 Rekomendasi Event/Lomba Favorit pada home.
+
 ![Aplikasi](img/4.png)
+
 ![Aplikasi](img/5.png)
+    Versi Zoom Out
+
 
 2. Log In
+
 ![Aplikasi](img/10.png)
 
+    Guess dapat Log In sebagai Registered User jika telah mendaftar. Admin perlu Log In terlebih dahulu sebelum mengakses semua fitur admin.
+
+
 3. Sign Up
+
+    Guess dapat melakukan registrasi, agar dapat login sebagai registered user.
+
 ![Aplikasi](img/11.png)
 
+
 4. Profile
+    
+    Saat Registered User telah Log In, pada pojok kanan atas terdapat Dropdown button yang berisi pintasan menuju fitur yang bisa diakses, salah satunya yaitu profile.
+
 ![Aplikasi](img/12.png)
+
 ![Aplikasi](img/15.png)
+    Tampilan Profile User
+
 
 5. Edit Profile
+
+    Registered User dapat melakukan edit profile untuk melakukan pengubahan data
+
 ![Aplikasi](img/16.png)
 
+
 6. Lihat Event/Lomba
+
+    Fitur ini berisi daftar semua event/lomba ataupun per kategori, terdapat bar yang berfungsi untuk menentukan apakah ingin menampilkan semua list Event/Lomba, atau hanya menampilkan kategori tertentu.
+
 ![Aplikasi](img/6.png)
+
 ![Aplikasi](img/7.png)
+    Tampilan Zoom Out, Show All Event
+
 ![Aplikasi](img/8.png)
+    Tampilan Event sesuai kategori tertentu
+
 ![Aplikasi](img/9.png)
+    Tampilan Event sesuai kategori tertentu
+
 
 7. Submit Event/Lomba
+
+    Registered User dapat menambahkan dan submit Event sendiri melalui fitur ini
+
 ![Aplikasi](img/13.png)
 
+
 8. Event Saya
+
+    Registered User dapat melihat list event/lomba yang pernah dibuat melalui akun tersebut.
+
 ![Aplikasi](img/14.png)
 
+
 9. Verifikasi Event/Lomba
+
+    Event yang telah disubmit registered user, harus diverifikasi oleh admin terlebih dahulu sebelum dapat ditampilkan.
+
 ![Aplikasi](img/17.png)
 
+
 10. Pengaturan Semua Event/Lomba
+
+    Admin dapat melakukan pengaturan berupa Edit,Hapus, atau Melihat semua Event/Lomba yang ada secara bebas.
+
 ![Aplikasi](img/18.png)
+
 
 ## KEAMANAN
 
 1. Hashed Password
+
+    Untuk menjamin keamanan pada saat login dari beberapa exploit seperti SQL Injection, password pada saat registrasi akan dihash terlebih dahulu, kemudian password yang disimpan di dalam database adalah password yang telah terenkripsi.
+
 ![Aplikasi](img/20.png)
+
+    Pada saat login akan dilakukan verify terhadap enkripsi password di database, bukan terhadap plain text password.
+
 ![Aplikasi](img/21.png)
 
+
 2. Filter Path Access
+
+    Agar hanya admin yang dapat mengakses fitur admin, dilakukan filter terhadap path akses tersebut. Sehingga hanya admin yang memiliki akses ke path seperti /admin/verifikasiLivent.php dan path lain dari fitur admin.
+
 ![Aplikasi](img/22.png)
