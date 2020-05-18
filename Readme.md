@@ -2,9 +2,36 @@
 Aplikasi web informasi lomba & event
 
 ## Nama kelompok dan anggota :
-- Muhammad Rayhan Adyatma	(G64180064)
-- Alvin Ferdiansyah			(G64180079)
-- Riyad Firdaus				(G64180089)
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nama</th>
+            <th>Nim</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Muhammad Rayhan Adyatma</td>
+            <td>G64180064</td>
+            <td>Full-Stack</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Alvin Ferdiansyah</td>
+            <td>G64180079</td>
+            <td>Full-Stack</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Riyad Firdaus</td>
+            <td>G641800899</td>
+            <td>Full-Stack</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Latar belakang
 Tingkat antusiasme mahasiswa IPB dalam mengikuti event dan lomba dapat dikatakan sangat tinggi. Namun, banyak kesulitan yang dialami mahasiswa dalam mencari informasi event, lomba, dan administrasi pembiayaan untuk mengikuti lomba yang diadakan oleh penyelenggara. Oleh karena itu kami ingin membuat aplikasi web untuk memudahkan mahasiswa dalam mencari informasi tersebut.
@@ -97,21 +124,22 @@ Berikut adalah hasil screenshoot dari fitur fitur yang ada pada aplikasi kami be
 
 Terdapat 3 jenis User yang memiliki akses berbeda terhadap fitur di dalam aplikasi, yaitu sebagai berikut
 
-1. Guess ( User yang tidak mendaftar )
+1. Guest ( User yang tidak mendaftar ) <a href="Silivent/index.php">Link Code</a>
 
 ![Aplikasi](img/1.png)
 
     Guess hanya memiliki akses ke fitur lihat semua event/lomba, yang berisi list event/lomba yang tersedia.
 
 
-2. Registered User ( User yang telah mendaftar )
+2. Registered User ( User yang telah mendaftar ) <a href="Silivent/user/index.php">Link Code</a>
 
 ![Aplikasi](img/2.png)
 
     Registered User memiliki akses ke fitur lihat semua event/lomba, membuat dan submit event/lomba , melihat daftar event/lomba yang pernah dibuat, dan mengakses profile serta mengedit profile.
 
 
-3. Admin
+3. Admin <a href="Silivent/admin/index.php">Link Code</a>
+
 ![Aplikasi](img/3.png)
 
     Admin memiliki semua akses terhadap fitur, termasuk memverifikasi submitan registered user dan melakukan pengaturan terhadap semua event/lomba yang tersedia.
@@ -119,7 +147,7 @@ Terdapat 3 jenis User yang memiliki akses berbeda terhadap fitur di dalam aplika
 
 ## FITUR
 
-1. Home
+1. Home <a href="Silivent/index.php">Link Code</a>
 
 Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 Rekomendasi Event/Lomba Favorit pada home.
 
@@ -129,21 +157,21 @@ Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 
     Versi Zoom Out
 
 
-2. Log In
+2. Log In <a href="Silivent/logIn.php">Link Code</a>
 
 ![Aplikasi](img/10.png)
 
     Guess dapat Log In sebagai Registered User jika telah mendaftar. Admin perlu Log In terlebih dahulu sebelum mengakses semua fitur admin.
 
 
-3. Sign Up
+3. Sign Up <a href="Silivent/signUp.php">Link Code</a>
 
     Guess dapat melakukan registrasi, agar dapat login sebagai registered user.
 
 ![Aplikasi](img/11.png)
 
 
-4. Profile
+4. Profile <a href="Silivent/user/profile.php">Link Code</a>
     
     Saat Registered User telah Log In, pada pojok kanan atas terdapat Dropdown button yang berisi pintasan menuju fitur yang bisa diakses, salah satunya yaitu profile.
 
@@ -153,14 +181,14 @@ Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 
     Tampilan Profile User
 
 
-5. Edit Profile
+5. Edit Profile <a href="Silivent/user/profile.php">Link Code</a>
 
     Registered User dapat melakukan edit profile untuk melakukan pengubahan data
 
 ![Aplikasi](img/16.png)
 
 
-6. Lihat Event/Lomba
+6. Lihat Event/Lomba <a href="Silivent/list.php">Link Code</a>
 
     Fitur ini berisi daftar semua event/lomba ataupun per kategori, terdapat bar yang berfungsi untuk menentukan apakah ingin menampilkan semua list Event/Lomba, atau hanya menampilkan kategori tertentu.
 
@@ -176,28 +204,28 @@ Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 
     Tampilan Event sesuai kategori tertentu
 
 
-7. Submit Event/Lomba
+7. Submit Event/Lomba <a href="Silivent/user/profile.php">Link Code</a>
 
     Registered User dapat menambahkan dan submit Event sendiri melalui fitur ini
 
 ![Aplikasi](img/13.png)
 
 
-8. Event Saya
+8. Event Saya <a href="Silivent/user/tambahLivent.php">Link Code</a>
 
     Registered User dapat melihat list event/lomba yang pernah dibuat melalui akun tersebut.
 
 ![Aplikasi](img/14.png)
 
 
-9. Verifikasi Event/Lomba
+9. Verifikasi Event/Lomba <a href="Silivent/admin/verifikasiLivent.php">Link Code</a>
 
     Event yang telah disubmit registered user, harus diverifikasi oleh admin terlebih dahulu sebelum dapat ditampilkan.
 
 ![Aplikasi](img/17.png)
 
 
-10. Pengaturan Semua Event/Lomba
+10. Pengaturan Semua Event/Lomba <a href="Silivent/admin/listLiventDiajukan.php">Link Code</a>
 
     Admin dapat melakukan pengaturan berupa Edit,Hapus, atau Melihat semua Event/Lomba yang ada secara bebas.
 
