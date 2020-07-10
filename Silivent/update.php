@@ -11,20 +11,20 @@ if(isset($_POST['update']))
 
     $username = $_POST['username']; #nilai submit dari form username, disimpan di variabel username
 
-    $name=$_POST['name']; #nilai submit dari form nama, disimpan di variabel nama
+    $namaLengkap=$_POST['namaLengkap']; #nilai submit dari form nama, disimpan di variabel nama
     $phone=$_POST['phone']; #nilai submit dari form phone, disimpan di variabel phone
     $email=$_POST['email']; #nilai submit dari form email, disimpan di variabel email
     $bio=$_POST['bio']; #nilai submit dari form bio, disimpan di variabel ubio
     $instansi=$_POST['instansi']; #nilai submit dari form instansi, disimpan di variabel instansi
 
     # update user data ke database
-    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE username='$username'");
+    $result = mysqli_query($mysqli, "UPDATE user SET namaLengkap='$namaLengkap',email='$email',phone='$phone',bio='$bio',instansi='$instansi' WHERE username='$username'");
 
     # Close koneksi yang di config.php
     mysqli_close($mysqli);
     
     # mulai session baru, seperti hidup baru, dicopas dari codingan yang login
-        $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
+        $sql = "SELECT * FROM user WHERE username=:username OR email=:email";
         $stmt = $db->prepare($sql);
         $params = array
             (
@@ -43,7 +43,7 @@ if(isset($_POST['update']))
 <?php
 // Display selected user data based on username
 // Getting username from url
-$name = $_SESSION["user"]["name"];
+$name = $_SESSION["user"]["namaLengkap"];
 $email = $_SESSION["user"]["email"];
 $phone = $_SESSION["user"]["phone"];
 $bio = $_SESSION["user"]["bio"];
@@ -86,7 +86,7 @@ $instansi = $_SESSION["user"]["instansi"];
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                    <p><?php echo  $_SESSION["user"]["name"] ?></p>
+                                    <p><?php echo  $_SESSION["user"]["namaLengkap"] ?></p>
                                     </h5>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -122,7 +122,7 @@ $instansi = $_SESSION["user"]["instansi"];
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                   <p><input type="text" name="name" value=<?php echo $name;?>></p>
+                                                   <p><input type="text" name="namaLengkap" value=<?php echo $namaLengkap;?>></p>
                                             </div>
                                         </div>
                                         <div class="row">

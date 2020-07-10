@@ -131,12 +131,12 @@
     			</thead>
     			<tbody>
     				<?php
-    				$query = mysqli_query($koneksi, "select * from event where verivied=0");
+    				$query = mysqli_query($koneksi, "select * from user join event on event.creator_id = user.id where event.verivied = 0");
     				while($tangkap = mysqli_fetch_array($query)){
     					echo "<tr>";
               echo "<td>".$tangkap['nama']."</td>";
-              echo "<td>".$tangkap['creator']."</td>";
-              echo "<td>".$tangkap['institusi']."</td>";
+              echo "<td>".$tangkap['namaLengkap']."</td>";
+              echo "<td>".$tangkap['instansi']."</td>";
     					echo "<td>";
     					echo "<a href='hapusLivent.php?id=".$tangkap['id']."'>Hapus</a>";
     					echo " / ";

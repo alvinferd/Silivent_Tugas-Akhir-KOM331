@@ -80,40 +80,40 @@
 <?php
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $query = mysqli_query($koneksi,"SELECT * FROM event WHERE id = $id");
+        $query = mysqli_query($koneksi,"SELECT * FROM user JOIN event ON event.creator_id = user.id JOIN kategori ON kategori.id = event.id_kategori WHERE event.id = $id");
         $tangkap = mysqli_fetch_array($query);
-echo"	<section class='section white-section section-home-padding-top'>
-			<div class='container'>
-				<div class='sixteen columns'>
-					<div class='section-title left'>
-						<h1>".$tangkap['nama']."</h1>
-						<div class='subtitle left big'>
-							Oleh: ".$tangkap['creator']."
-							dari ".$tangkap['institusi']."
-						</div>
-					</div>
-				</div>
-			</div>
-				
-	</section>
-	<section class='section white-section section-padding-bottom'>
-			<div class='container'>
-				<div class='twelve columns'>
-					<div class='blog-big-wrapper grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
-						<img src='../img/".$tangkap['image']."'>
-						<h4>Deskripsi Event & Lomba</h4>
-						<p>".$tangkap['longDesc'].".</p>					
-				</div>	
-				<div class='post-tags-categ grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
-					<p>Categories: <a href='#''>".$tangkap['kategori']."</a></p>
-				</div>
-			</div>
-		</div>
-	</section>";
-	}
-	else{
+echo" <section class='section white-section section-home-padding-top'>
+      <div class='container'>
+        <div class='sixteen columns'>
+          <div class='section-title left'>
+            <h1>".$tangkap['nama']."</h1>
+            <div class='subtitle left big'>
+              Oleh: ".$tangkap['namaLengkap']."
+              dari ".$tangkap['instansi']."
+            </div>
+          </div>
+        </div>
+      </div>
+        
+  </section>
+  <section class='section white-section section-padding-bottom'>
+      <div class='container'>
+        <div class='twelve columns'>
+          <div class='blog-big-wrapper grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
+            <img src='../img/".$tangkap['image']."'>
+            <h4>Deskripsi Event & Lomba</h4>
+            <p>".$tangkap['longDesc'].".</p>          
+        </div>  
+        <div class='post-tags-categ grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
+          <p>Categories: <a href='#''>".$tangkap['namaKategori']."</a></p>
+        </div>
+      </div>
+    </div>
+  </section>";
+  }
+  else{
         die("akses dilarang...");
-    }		
+    }   
 ?>
 	<!-- FOOTER
     ================================================== -->	

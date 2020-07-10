@@ -112,17 +112,6 @@
 		
 			<div class="container">				
 				<form name="ajax-form" id="ajax-form" action="LiventProc.php" method="post" enctype="multipart/form-data">
-					<div class="sixteen columns">
-						<div class="subtitle left">Nama Lengkap:</div>
-						<br>
-						<input style="text-transform: none; font-size: 14px" type="text" size="100" name="creator" required>
-					</div>
-					
-					<div class="sixteen columns">
-						<div class="subtitle left">Nama Institusi:</div>
-						<br>
-						<input style="text-transform: none; font-size: 14px" type="text" name="institusi" size="100" required>
-					</div>
 					
 					<div class="sixteen columns">
 						<div class="subtitle left">Nama Lomba/Event:</div>
@@ -151,14 +140,12 @@
 						<div class="subtitle left">Pilih Kategori:</div>
 						<br>
 						<select style="font-size: 16px"name="kategori">
-				            <option value="KTI">KTI</option>
-				            <option value="Fotografi">Fotografi</option>
-				            <option value="Debat">Debat</option>
-				            <option value="Informatika">Informatika</option>
-				            <option value="Seni dan Budaya">Seni dan Budaya</option>
-				            <option value="Olahraga">Olahraga</option>
-				            <option value="E-Sport">E-Sport</option>
-				            <option value="Lainnya">Lainnya</option>  
+				            <?php
+    						$query = mysqli_query($koneksi, "SELECT * FROM kategori");
+    						while($tangkap = mysqli_fetch_array($query)){
+    							echo "<option value='".$tangkap['id']."'>".$tangkap['namaKategori']."</option>";
+    			    		}
+    						?>
 				        </select>
 					</div>
 					

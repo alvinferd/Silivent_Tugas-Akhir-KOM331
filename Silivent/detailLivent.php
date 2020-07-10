@@ -19,25 +19,25 @@
   <!-- CSS
   ================================================== -->
   <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/base.css"/>
-  <link rel="stylesheet" href="../css/skeleton.css"/>
-  <link rel="stylesheet" href="../css/layout.css"/>
-  <link rel="stylesheet" href="../css/settings.css"/>
-  <link rel="stylesheet" href="../css/font-awesome.css" />
-  <link rel="stylesheet" href="../css/owl.carousel.css"/>
-  <link rel="stylesheet" href="../css/retina.css"/>
-  <link rel="stylesheet" href="../css/colorbox.css"/>
-  <link rel="stylesheet" href="../css/animsition.min.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/skeleton.css"/>
+  <link rel="stylesheet" href="css/layout.css"/>
+  <link rel="stylesheet" href="css/settings.css"/>
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="css/owl.carousel.css"/>
+  <link rel="stylesheet" href="css/retina.css"/>
+  <link rel="stylesheet" href="css/colorbox.css"/>
+  <link rel="stylesheet" href="css/animsition.min.css"/>
   
-  <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-gold.css" title="1">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-2.css" title="2">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-3.css" title="3">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-4.css" title="4">
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-5.css" title="5">  
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-6.css" title="6">  
-    <link rel="alternate stylesheet" type="text/css" href="../css/colors/color-7.css" title="7">
+  <link rel="alternate stylesheet" type="text/css" href="css/colors/color-gold.css" title="1">
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-2.css" title="2">
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-3.css" title="3">
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-4.css" title="4">
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-5.css" title="5">  
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-6.css" title="6">  
+    <link rel="alternate stylesheet" type="text/css" href="css/colors/color-7.css" title="7">
   
   
   
@@ -75,8 +75,9 @@
   <!-- SECTION
     ================================================== -->
 <?php
+    if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $query = mysqli_query($koneksi,"SELECT * FROM event WHERE id = $id");
+        $query = mysqli_query($koneksi,"SELECT * FROM user JOIN event ON event.creator_id = user.id JOIN kategori ON kategori.id = event.id_kategori WHERE event.id = $id");
         $tangkap = mysqli_fetch_array($query);
 echo" <section class='section white-section section-home-padding-top'>
       <div class='container'>
@@ -84,8 +85,8 @@ echo" <section class='section white-section section-home-padding-top'>
           <div class='section-title left'>
             <h1>".$tangkap['nama']."</h1>
             <div class='subtitle left big'>
-              Oleh: ".$tangkap['creator']."
-              dari ".$tangkap['institusi']."
+              Oleh: ".$tangkap['namaLengkap']."
+              dari ".$tangkap['instansi']."
             </div>
           </div>
         </div>
@@ -96,16 +97,20 @@ echo" <section class='section white-section section-home-padding-top'>
       <div class='container'>
         <div class='twelve columns'>
           <div class='blog-big-wrapper grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
-            <img src='../img/".$tangkap['image']."'>
+            <img src='img/".$tangkap['image']."'>
             <h4>Deskripsi Event & Lomba</h4>
             <p>".$tangkap['longDesc'].".</p>          
         </div>  
         <div class='post-tags-categ grey-section' data-scroll-reveal='enter bottom move 200px over 1s after 0.3s'>
-          <p>Categories: <a href='#''>".$tangkap['kategori']."</a></p>
+          <p>Categories: <a href='#''>".$tangkap['namaKategori']."</a></p>
         </div>
       </div>
     </div>
-  </section>";   
+  </section>";
+  }
+  else{
+        die("akses dilarang...");
+    }   
 ?>
   <!-- FOOTER
     ================================================== -->  
@@ -123,11 +128,11 @@ echo" <section class='section white-section section-home-padding-top'>
     
   <!-- JAVASCRIPT
     ================================================== -->
-<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
-<script type="text/javascript" src="../js/modernizr.custom.js"></script> 
-<script type="text/javascript" src="../js/jquery.mobile.custom.min.js"></script>
-<script type="text/javascript" src="../js/retina-1.1.0.min.js"></script>    
-<script type="text/javascript" src="../js/jquery.animsition.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script> 
+<script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+<script type="text/javascript" src="js/retina-1.1.0.min.js"></script>    
+<script type="text/javascript" src="js/jquery.animsition.min.js"></script>
 <script type="text/javascript">
 (function($) { "use strict";
   $(document).ready(function() {
@@ -153,25 +158,25 @@ echo" <section class='section white-section section-home-padding-top'>
   });  
 })(jQuery);
 </script>
-<script type="text/javascript" src="../js/jquery.easing.js"></script> 
-<script type="text/javascript" src="../js/jquery.hidescroll.min.js"></script> 
+<script type="text/javascript" src="js/jquery.easing.js"></script> 
+<script type="text/javascript" src="js/jquery.hidescroll.min.js"></script> 
 <script type="text/javascript">
   $('.header-top').hidescroll();
 </script>
-<script type="text/javascript" src="../js/smoothScroll.js"></script>
-<script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
-<script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script> 
-<script type="text/javascript" src="../js/masonry.js"></script> 
-<script type="text/javascript" src="../js/isotope.js"></script> 
-<script type="text/javascript" src="../js/jquery.counterup.min.js"></script>
-<script type="text/javascript" src="../js/waypoints.min.js"></script>
-<script type="text/javascript" src="../js/scrollReveal.js"></script>
+<script type="text/javascript" src="js/smoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script> 
+<script type="text/javascript" src="js/masonry.js"></script> 
+<script type="text/javascript" src="js/isotope.js"></script> 
+<script type="text/javascript" src="js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="js/waypoints.min.js"></script>
+<script type="text/javascript" src="js/scrollReveal.js"></script>
 <script type="text/javascript">
 (function($) { "use strict";
       window.scrollReveal = new scrollReveal();
 })(jQuery);
 </script>
-<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript"> 
 (function($) { "use strict";          
       jQuery(document).ready(function() {
@@ -193,9 +198,9 @@ echo" <section class='section white-section section-home-padding-top'>
       });
 })(jQuery);
 </script>
-<script type="text/javascript" src="../js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="../js/styleswitcher.js"></script>
-<script type="text/javascript" src="../js/custom-ajax-home.js"></script>  
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/styleswitcher.js"></script>
+<script type="text/javascript" src="js/custom-ajax-home.js"></script>  
 <script>
   function berhasilBerhasilBerhasilHore() {
     alert("Berhasil Membuat Akun!");

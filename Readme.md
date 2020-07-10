@@ -233,23 +233,3 @@ Pada Fitur Home, terdapat arahan menuju fitur sesuai akses user, dan terdapat 3 
     Admin dapat melakukan pengaturan berupa Edit,Hapus, atau Melihat semua Event/Lomba yang ada secara bebas.
 
 ![Aplikasi](img/18.png)
-
-
-## KEAMANAN
-
-1. Hashed Password
-
-    Untuk menjamin keamanan pada saat login dari beberapa exploit seperti SQL Injection, password pada saat registrasi akan dihash terlebih dahulu, kemudian password yang disimpan di dalam database adalah password yang telah terenkripsi.
-
-![Aplikasi](img/20.png)
-
-    Pada saat login akan dilakukan verify terhadap enkripsi password di database, bukan terhadap plain text password.
-
-![Aplikasi](img/21.png)
-
-
-2. Filter Path Access
-
-    Agar hanya admin yang dapat mengakses fitur admin, dilakukan filter terhadap path akses tersebut. Sehingga hanya admin yang memiliki akses ke path seperti /admin/verifikasiLivent.php dan path lain dari fitur admin.
-
-![Aplikasi](img/22.png)

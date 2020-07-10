@@ -33,6 +33,7 @@
                             <a href="logIn.php">Login</a><a href="signUp.php" class="active">Sign Up</a>
                         </div>
                         <form action="signUpProc.php" method="post">
+                            <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap" required>
                             <input class="form-control" type="email" name="email" placeholder="Alamat Email" required>
                             <?php
                             if(isset($_GET['pesan'])){

@@ -7,15 +7,15 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Profile Page</title>
-		<link href="style.css" rel="stylesheet" type="text/css">
+    <head>
+        <meta charset="utf-8">
+        <title>Profile Page</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	</head>
+    </head>
 <body class="loggedin">
 
 <div class="container emp-profile">
@@ -79,6 +79,14 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <p><?php echo $_SESSION['username']; ?></p> <!--Tampilin username dari tabel user yg aktif berdasarkan session-->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nama Lengkap</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $_SESSION['namaLengkap']; ?></p> <!--Tampilin nama dari tabel user yg aktif berdasarkan session-->
                                             </div>
                                         </div>
                                         <div class="row">

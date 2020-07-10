@@ -130,11 +130,11 @@
 			<div class="blog-wrapper">
 				<div id='blog-grid-masonry'>
 				<?php
-	    			$query = mysqli_query($koneksi,"SELECT * FROM event");
+	    			$query = mysqli_query($koneksi,"SELECT * FROM kategori JOIN event ON event.id_kategori = kategori.id");
 	    			while($tangkap = mysqli_fetch_array($query)){
 		    			if ($tangkap['verivied'] == 1) {
 		    				echo 	"<a href='detailLivent.php?id=".$tangkap['id']."'class='animsition-link'>
-										<div class='blog-box-3 ".$tangkap['kategori']."'>
+										<div class='blog-box-3 ".$tangkap['namaKategori']."'>
 											<div class='blog-box-1 grey-section'>
 												<img src='img/".$tangkap['image']."'>
 												<h6>".$tangkap['nama']."</h6>

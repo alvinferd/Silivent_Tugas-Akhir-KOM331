@@ -10,11 +10,9 @@ if(isset($_POST['edit']) && isset($_GET['id'])){
 	$shortDesc = $_POST['shortDesc'];
 	$longDesc = $_POST['longDesc'];
 	$kategori = $_POST['kategori'];
-	$creator = $_POST['creator'];
-	$institusi = $_POST['institusi'];
 
 	
-  $query = mysqli_query($koneksi, "UPDATE event SET nama='$nama', image='$image', shortDesc='$shortDesc', longDesc='$longDesc', kategori='$kategori', creator='$creator', institusi='$institusi' WHERE id=$id");
+  $query = mysqli_query($koneksi, "UPDATE event SET nama='$nama', image='$image', shortDesc='$shortDesc', longDesc='$longDesc', kategori='$kategori', verivied='0' WHERE id=$id");
 
 	
 	if ($query) {
